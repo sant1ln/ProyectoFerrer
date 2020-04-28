@@ -1,0 +1,12 @@
+lista de tareas
+
+1.creacion de modelo de bases de datos
+2.creacion de plantillas de la pag web
+3 creacion de la pagina html css
+4.creacion de codigo javacript
+5.conexion a base de datos 
+
+1 sprint= entrega de modelo base de datos y modelo de plantillas
+2 sprint= entrga del diseño de pag web 
+3 sprint= entrega de comandos en accion 
+4 entega de funcuonamiento en base de datos

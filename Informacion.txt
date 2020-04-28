@@ -1,0 +1,19 @@
+Actualmente como dueña de la Agropecuaria Ferrer tengo varias dificultades que requiero solucionar a travès de una aplicaciòn.
+
+Solicito tener un tipo de producto que contenga: Tipo de Producto(Riegos, Abonos, Cuidos, Medicina Veterinaria, Acsesorios para animales,) Nombre del producto y precio de venta
+
+Informacion del Trabajadores: Nombre del vendedor, Cedula, telefono, Direccion
+
+Informacion del proveedor : Nombre,  Cedula telefono, Ciudad
+
+Entradas de producto: Cantidad, producto, proveedor
+
+Ventas: Fecha, producto, cantidad de venta, Valor total Venta , Vendedor y Forma de Pago
+
+Ademas se desea contar con  los siguientes reportes:
+
+1. Reporte de totalizaciòn de ventas generadas en un periodo por forma de pago 
+2. Reporte de Existencias por producto
+3. Reporte de alertas de productos que esten a punto de agotarse(Menores a 10 unidades)
+
+Cabe anotar que todos los productos que tengo los manejo en unidades.

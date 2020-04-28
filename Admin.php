@@ -1,0 +1,309 @@
+<?php 
+  include_once 'includes/templates/header.php';
+  include_once 'includes/funciones/consultas.php';
+ ?>    
+    <div class="contenedor contenedorA">
+        <div class="contenedorInventario">
+            <div class="inventarioMORE" id="inventarioMORE"><!-- VER INVENTARIO -->
+                <div class="TengoEstilos">
+                <img src="./img/logo.png" alt="Logo">
+                <i class="fas fa-sign-out-alt Singout" id="CerrarInventario"></i>
+                </div>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Existencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                <?php  $inventarios = obtenerInventario();
+                //var_dump($inventarios);
+                  
+                   
+                   
+                   if($inventarios->num_rows) { 
+                                
+                    foreach($inventarios as $inventario) { ?>
+
+                            <tr>
+                                <td><?php echo $inventario['Id_Producto']; ?></td>
+                                <td><?php echo $inventario['Id_Tipo_Producto']; ?></td>
+                                <td><?php echo $inventario['Nombre_Producto']; ?></td>
+                                <td><?php echo $inventario['Precio_Venta']; ?></td>
+                                <td><?php echo $inventario['existencia']; ?></td>
+                            </tr>
+                    <?php } 
+                } ?>
+                   
+                  </tbody>
+             </table>
+            </div>
+          </div>
+
+            <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR A INVENTARIO -->
+                <div class="TengoEstilos">
+                  <img src="./img/logo.png" alt="Logo">
+                  <i class="fas fa-sign-out-alt Singout" id="CerrarAnadir"></i>
+                </div>
+                <div class="container">
+                  <form   id="producto" class="Anadir" method="POST">
+                    <div class="form-row">
+                    <div class="col">
+                        <label for="">Codigo</label>
+                        <input type="text" placeholder="Codigo Producto" id="Codigo" name="Codigo" class="form-control" >
+                      </div>
+                      <div class="col">
+                        <label for="">Nombre</label>
+                        <input type="text" placeholder="Nombre Producto" id="Nombre" name="Nombre" class="form-control" >
+                      </div>
+                      <div class="col">
+                        <label for="">Tipo</label>
+                        <input list="buscador"placeholder="Tipo Producto" id="Tipo" name="Tipo" class="form-control">
+                        <datalist id=buscador>
+                            <option value="Abonos">
+                            <option value="Cuidos">
+                            <option value="Insecticida">
+                            <option value="Semillas">
+                        </datalist>
+                      </div>
+                     
+                      <div class="col">
+                        <label for="Nombre">Precio</label>
+                        <input type="number" placeholder="Precio" id="Precio" name="Precio" class="form-control">
+                      </div>
+
+                      <div class="col Enviar">
+                        <input type="hidden" id="Accion" value="ingresar">
+                        <button type="submit" name="submit" class="btn btn-primary mb-2">Añadir</button>
+                      </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+
+                    <table id="listado-productos" class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Codigo</th>
+                      <th scope="col">Nombre Producto</th>
+                      <th scope="col">Tipo Producto</th>
+                      <th scope="col">Precio Producto</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php $Productos = obtenerProductos();
+
+                    if($Productos->num_rows) { 
+                                
+                        foreach($Productos as $Producto) { ?>
+
+                                <tr>
+                                    <td><?php echo $Producto['Id_Producto']; ?></td>
+                                    <td><?php echo $Producto['Nombre_Producto']; ?></td>
+                                    <td><?php echo $Producto['Id_Tipo_Producto']; ?></td>
+                                    <td><?php echo $Producto['Precio_Venta']; ?></td>
+                                    <td>
+                                        <a class="btn-editar btn" href="editar.php?id=<?php echo $Producto['Id_Producto']; ?>"><i class="fas fa-pen-square btn-editar"></i></a>
+                                        <button data-id=<?php echo $Producto['Id_Producto']; ?> type="button" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
+                                    </td>
+                                </tr>
+                        <?php } 
+                    } ?>
+                                          
+                    </tbody>
+              </table>
+
+                  
+                  </form>
+                </div>
+            </div>
+
+            <div class="inventarioMORE" id="EmpleadoADD"><!-- AÑADIR  Empleado -->
+                  <div class="TengoEstilos">
+                     <img src="./img/logo.png" alt="Logo">
+                      <h3>AÑADIR EMPLEADO</h3>
+                      <i class="fas fa-sign-out-alt Singout" id="CerrarEmpleado"></i>
+                  </div>
+                  <div class="container">
+                    
+                    <form class="Anadir" id="Fempleado" method="POST">
+                       <div class="form-row">
+                        <div class="col">
+                          <label for="">Tipo</label>
+                            <input list="looker" placeholder="Cargo empelado" id="cargo" name="Tipo" class="form-control">
+                              <datalist id="looker">
+                                  <option value="Administrador">
+                                  <option value="Cajero">
+                              </datalist>
+                        </div>
+  
+                        
+                        <div class="col">
+                          <label for="nombre">Nombre</label>
+                          <input type="text" name="nombre" id="nombreEmpleado" class="form-control">
+                        </div>
+                                              
+                        
+                        <div class="col">
+                          <label for="cedula">Cedula</label>
+                          <input type="number" name="cedula" id="CedulaEmpleado" class="form-control">
+                        </div>
+                        
+                        <div class="col">
+                          <label for="celular">Celular</label>
+                          <input type="tel" name="celular" id="CelularEmpleado" class="form-control" >
+                        </div>
+
+                        <div class="col">
+                          <label for="direccion">Direccion</label>
+                          <input type="text" name="direccion" id="direccionEmpleado" class="form-control" >
+                        </div>
+  
+  
+                        <div class="col Enviar">
+                          <input type="hidden" id="Accion2" value="crear">
+                          <button type="submit" class="btn btn-primary mb-2">Añadir</button>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+            </div>
+
+            <div class="inventarioMORE" id="EmpladoMORE"><!-- VER EMPLEADOS-->
+              <div class="TengoEstilos">
+                              <img src="./img/logo.png" alt="Logo">
+              <h3>EMPLEADOS</h3>
+              <i class="fas fa-sign-out-alt Singout" id="CerrarEmpleados"></i>
+              </div>
+              <table class="table table-striped" id="Lista_empleados">
+                  <thead>
+                    <tr>
+                      <!-- <th scope="col">Codigo</th> -->
+                      <th scope="col">Cargo</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Cedula</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Direccion</th>
+                      <th scope="col">Acciones</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php   $empleados = obtenerEmpleados();
+                    
+                   if($empleados->num_rows){
+                      
+                      foreach($empleados as $empelado){  ?>
+                      <tr>
+                      
+                        
+                        <td><?php echo $empelado['Cargo']; ?></td>
+                        <td><?php echo $empelado["Nombre"]; ?></td>
+                        <td><?php echo $empelado["Cedula"]; ?></td>
+                        <td><?php echo $empelado["Celular"]; ?></td>
+                        <td><?php echo $empelado["Direccion"]; ?></td>
+                        <td>
+                            <a class="btn" href="updEmpleado.php?id=<?php echo $empelado["id_empleado"] ?> "><i class="fas fa-pen-square  btn-editar"></i></a>
+                            <button type="button" data-id="<?php echo $empelado["id_empleado"] ?>" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
+                        </td>
+                      </tr>
+                    <?php  }
+                  } ?>
+                    </tbody>
+              </table>
+            </div>
+
+            <div class="inventarioMORE" id="EntradaADD"><!-- AÑADIR  entrada -->
+                  <div class="TengoEstilos">
+                    <img src="./img/logo.png" alt="Logo">
+                    <h3>AÑADIR ENTRADA</h3>
+                    <i class="fas fa-sign-out-alt Singout" id="CerrarAnadirEntrada"></i>
+                  </div>
+                  <div class="container">
+                  <p></p> <!--santi no borres este parrafo  Santiago Responde= Dale :D -->
+                  <form  id="producto-entrada" class="Anadir" method="POST">
+                      <div class="form-row">
+                                                
+                        <div class="col">
+                          <label for="">Cantidad</label>
+                          <input placeholder="Cantidad Producto" id="Cantidad" type="Number" name="Cantidad" class="form-control">
+                         
+                        </div>
+
+                        <div class="col">
+                          <label for="Cantidad">Codigo Producto</label>
+                          <input placeholder="Codigo Producto" id="CodProducto" type="text" name="CodigoP" class="form-control" >
+                        </div>
+          
+                        
+                        <div class="col">
+                          <label for="Valor">Cedula Proveedor</label>
+                          <input placeholder="Cedula proveedor" id="CedProveedor" type="number" name="CedulaP" class="form-control">
+                        </div>
+                        
+                        <div class="col Enviar">
+                          <input type="hidden" id="Accion" value="ingresar">
+                          <button type="submit"  name="submit" class="btn btn-primary mb-2">Añadir</button>
+                        </div>
+  
+                      </div>
+                    </form>
+                  </div>
+            </div>
+            
+
+            <div id="admins">
+              <div class="seccionR"> <!-- Reporte por día -->
+                <div>
+                <h2>Reporte de ventas</h2>
+                </div>
+                <div class="reporte">
+                    <form action="">
+                        <label for="">Ingrese Fecha inicial</label>
+                        <input class="reportexDia" type="date" name="" id="">
+                        <label for="">Ingrese Fecha Final</label>
+                        <input class="reportexDia" type="date" name="" id="">
+                        <input class="Btn-generar" type="submit" value="Generar">
+                    </form>
+                </div>
+              </div>
+                    
+                    
+              <div class="seccionR"> <!-- Mostrar e añadir al inventario -->
+                <div>
+                    <h2>Inventario</h2>
+                </div>
+                <div class="reporte inventario">
+                    <input class="boton" id="botonAnadir"  type="button" value="Añadir Producto">
+                    <input class="boton" id="botonAnadirEntrada"  type="button" value="Añadir Entrada">
+                    <input class="boton" id="botonAbrir" type="button" value="Inventario">
+
+
+                   <!--  <ul>
+                        <li>Estiercol <span class="unidad">400</span></li>
+                        <li>Agujas    <span class="unidad">50</span></li>
+                        <li>Espermicida <span class="unidad">30</span></li>
+                        <li>Alambrados <span class="unidad">10</span></li>
+                        <li>Semillas<span class="unidad">100</span></li>
+                    </ul> -->
+                </div>
+              </div>
+              <div class="seccionR"><!-- Empleado -->
+                <div>
+                    <h2>Empleados</h2>
+                </div>
+                <div class="reporte inventario">
+                    <input type="button" id="botonAnadirE" class="boton btn-aceptar ADD" value="Añadir Empleado">
+                    <input type="button" id="botonVerE" class="boton btn-aceptar " value="Ver Empleados">
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+    <?php include_once 'includes/templates/footer.php'; ?>
