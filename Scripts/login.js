@@ -6,6 +6,7 @@ let vender = document.getElementById('vender');
 /* Ingreso.addEventListener('click',Entrar) */
 
 
+
 function Entrar(){
 
     let user=document.getElementById('usuario').value;

@@ -11,11 +11,19 @@ if($_POST['accion'] == 'crear'){
     $cedula    = filter_var($_POST['cedula'], FILTER_SANITIZE_STRING);
     $celular   = filter_var($_POST['celular'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
+    $pass      = filter_var($_POST['pass'], FILTER_SANITIZE_STRING);
+
+
+    $opciones = array(
+        'cost' => 12
+    );
+
+    $hash_password = password_hash($pass, PASSWORD_BCRYPT, $opciones);
 
     try{
-         $stmt = $conn->prepare("INSERT INTO empleado (Cargo, Nombre, Cedula, Celular, Direccion)  VALUES (?, ?, ?, ?, ?) ");
+         $stmt = $conn->prepare("INSERT INTO empleado (Cargo, Nombre, Cedula, Celular, Direccion,passwd)  VALUES (?, ?, ?, ?, ?, ?) ");
         //  los ? se usan para evitar Inyeccion SQL y los sss son tipo de datos.
-         $stmt->bind_param("sssss",$cargo, $nombre, $cedula, $celular, $direccion);
+         $stmt->bind_param("ssssss",$cargo, $nombre, $cedula, $celular, $direccion, $hash_password);
          $stmt->execute();
             if($stmt->affected_rows == 1){
 

@@ -141,13 +141,11 @@
                                   <option value="Cajero">
                               </datalist>
                         </div>
-  
                         
                         <div class="col">
                           <label for="nombre">Nombre</label>
                           <input type="text" name="nombre" id="nombreEmpleado" class="form-control">
-                        </div>
-                                              
+                        </div>                                              
                         
                         <div class="col">
                           <label for="cedula">Cedula</label>
@@ -163,7 +161,11 @@
                           <label for="direccion">Direccion</label>
                           <input type="text" name="direccion" id="direccionEmpleado" class="form-control" >
                         </div>
-  
+
+                        <div class="col">
+                          <label for="contraseña">Contraseña</label>
+                          <input type="password" name="contraseña" id="passEmpleado" class="form-control" >
+                        </div>  
   
                         <div class="col Enviar">
                           <input type="hidden" id="Accion2" value="crear">
@@ -172,13 +174,52 @@
 
                       </div>
                     </form>
+
+                    <!-- Ver empelados -->
+                    <table class="table table-striped" id="Lista_empleados">
+                  <thead>
+                    <tr>
+                      <!-- <th scope="col">Codigo</th> -->
+                      <th scope="col">Cargo</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Cedula</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Direccion</th>
+                      <th scope="col">Acciones</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php   $empleados = obtenerEmpleados();
+                    
+                   if($empleados->num_rows){
+                      
+                      foreach($empleados as $empelado){  ?>
+                      <tr>
+                      
+                        
+                        <td><?php echo $empelado['Cargo']; ?></td>
+                        <td><?php echo $empelado["Nombre"]; ?></td>
+                        <td><?php echo $empelado["Cedula"]; ?></td>
+                        <td><?php echo $empelado["Celular"]; ?></td>
+                        <td><?php echo $empelado["Direccion"]; ?></td>
+                        <td>
+                            <a class="btn" href="updEmpleado.php?id=<?php echo $empelado["id_empleado"] ?> "><i class="fas fa-pen-square  btn-editar"></i></a>
+                            <button type="button" data-id="<?php echo $empelado["id_empleado"] ?>" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
+                        </td>
+                      </tr>
+                    <?php  }
+                  } ?>
+                    </tbody>
+              </table>
+
                   </div>
             </div>
 
-            <div class="inventarioMORE" id="EmpladoMORE"><!-- VER EMPLEADOS-->
+            <div class="inventarioMORE" id="EmpladoMORE"><!-- Ver Provedores-->
               <div class="TengoEstilos">
                               <img src="./img/logo.png" alt="Logo">
-              <h3>EMPLEADOS</h3>
+              <h3>Proveedores</h3>
               <i class="fas fa-sign-out-alt Singout" id="CerrarEmpleados"></i>
               </div>
               <table class="table table-striped" id="Lista_empleados">

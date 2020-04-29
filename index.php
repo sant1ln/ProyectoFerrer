@@ -9,7 +9,38 @@
     <title>Login</title>
 </head>
 <body>
+
+
+   <?php 
    
+   $usuarios = array(
+    'Administradores' => array(
+       'Admin1' => array(
+            'Nombre' => 'Santiago',
+            'contraseña' => 'admin1'
+        ),
+       'Admin2' => array(
+            'Nombre' => 'Estefania',
+            'contraseña' => 'admin2'
+        )
+        
+    ),
+    'Cajeros' => array(
+        'Cajero1' => array(
+            'Nombre' => 'Sara',
+            'contraseña' => 'cj1'
+        ),
+        'Cajero2' => array(
+            'Nombre' => 'Jose Manuel',
+            'contraseña' => 'cj2'
+        )
+    )
+        );
+   echo "<pre>";
+   print_r ($usuarios);
+   echo "</pre>";
+
+   ?>
     <div class="login" id="login">
         <img src="./img/logo.png" alt="Logo">
         <form  action="" method="POST">

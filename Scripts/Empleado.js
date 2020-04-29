@@ -24,12 +24,13 @@ function leerFormulario(e){
     const CedulaEmpleado = document.querySelector('#CedulaEmpleado').value;
     const CelularEmpleado = document.querySelector('#CelularEmpleado').value;
     const direccionEmpleado = document.querySelector('#direccionEmpleado').value;
+    const contrasenaEmpleado = document.querySelector('#passEmpleado').value;
     
     const Accion = document.querySelector('#Accion2').value;
     // console.log(cargo + nombreEmpleado + CedulaEmpleado + CelularEmpleado + direccionEmpleado  )
 
     if(cargo === '' || nombreEmpleado === '' || CedulaEmpleado === 
-    '' || CelularEmpleado === '' || direccionEmpleado === '' ){
+    '' || CelularEmpleado === '' || direccionEmpleado === '' || contrasenaEmpleado === '' ){
     /*    NotificacionEmpleado("Debe de ingresar todos los campos",'error'); */
     }else{
         
@@ -40,6 +41,7 @@ function leerFormulario(e){
         infoEmpleado.append('cedula',CedulaEmpleado);
         infoEmpleado.append('celular',CelularEmpleado);
         infoEmpleado.append('direccion',direccionEmpleado);
+        infoEmpleado.append('pass',contrasenaEmpleado);
         infoEmpleado.append('accion',Accion);
 
         /* console.log(...infoEmpleado); */
