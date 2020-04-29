@@ -76,9 +76,15 @@ function leerFormulario(e){
             // leemos la respues de PHP
             
             const respuesta = JSON.parse(xhr.responseText);
-            console.log(respuesta.datos);
+            console.log(respuesta.respuesta);
             document.getElementById("Fempleado").reset(); // Resetea el formulario
-
+            if(respuesta.respuesta === 'correcto'){
+                Swal.fire(
+                    'Exito!',
+                    `${respuesta.datos.nombre} registrado correctamente`,
+                    'success'
+                    )
+            }
             // Inserta un nuevo elemento a la tabla empelado
              const nuevoEmpleado = document.createElement('tr');
              

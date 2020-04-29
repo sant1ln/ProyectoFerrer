@@ -341,7 +341,7 @@
                 </div>
                 <div class="reporte inventario">
                     <input type="button" id="botonAnadirE" class="boton btn-aceptar ADD" value="Añadir Empleado">
-                    <input type="button" id="botonVerE" class="boton btn-aceptar " value="Ver Empleados">
+                    <input type="button" id="botonVerE" class="boton btn-aceptar " value="Añadir Provedores">
                 </div>
             </div>
            </div>
