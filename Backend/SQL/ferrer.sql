@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 28, 2020 at 03:50 PM
+-- Generation Time: Apr 30, 2020 at 05:47 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.7
 
@@ -34,15 +34,20 @@ CREATE TABLE `empleado` (
   `Nombre` varchar(30) NOT NULL,
   `Cedula` varchar(15) NOT NULL,
   `Celular` varchar(15) NOT NULL,
-  `Direccion` varchar(50) NOT NULL
+  `Direccion` varchar(50) NOT NULL,
+  `passwd` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`) VALUES
-(14, 'Administrador', 'Estefania', '56', '5658', 'CL 107S SUR 50 99');
+INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`) VALUES
+(13, 'Cajero', 'Sara', '154684', '156848', 'CL 107S SUR 50 99', '$2y$12$uQYOVJ0aiep0ST.O9CmnguI9KKNSr3K4J3LUM2TLUorMTkjD3I6uW'),
+(14, 'Cajero', 'Jose Manuel', '546845', '584', 'CL 107S SUR 50 99', '$2y$12$5BnTBOM3yvYTtKue4Ao76ONIRdktTBw91ySc9FFZbzgGhNxyo5hT6'),
+(15, 'Administrador', 'Santiago', '155', '5417', 'CL 107S SUR 50 99', '$2y$12$cQb2nl25PQczvoM.NSnFs.Stc9AXxftwwY4ly05qPn/QqAlImhOlu'),
+(16, 'Administrador', 'Estefania', '15415', '54875', 'CL 107S SUR 50 99', '$2y$12$yVi8i644FYgvu/0AG.ceBeLcjMFEU11oX0b3S6wlyctH/CRdsKWcW'),
+(17, 'Administrador', 'Juan Manuel', '141', '31750220297', 'CL 107S SUR 50 99', '$2y$12$19DQWIWDQ2Erv5l2C2BoguX4Aj0XwmtRKBLlMC3CFnM6yAbn7P7aC');
 
 -- --------------------------------------------------------
 
@@ -62,7 +67,12 @@ CREATE TABLE `entradas_de_producto` (
 --
 
 INSERT INTO `entradas_de_producto` (`Id_entrada_producto`, `Cantidad_Producto`, `Id_Productoo`, `Cedula_Proveedor`) VALUES
-(12, 1, 1, 21549425);
+(12, 1, 1, 21549425),
+(13, 2589, 44, 21549425),
+(14, 44, 1, 21549425),
+(15, 58, 1, 21549425),
+(16, 7, 1, 21549425),
+(17, 4, 1, 21549425);
 
 -- --------------------------------------------------------
 
@@ -82,14 +92,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`) VALUES
-(1, 'estiercol5', 'Insecticida', 2300),
-(2, 'estefania', 'Cuidos', 12004),
-(4, 'vetenira', 'Insecticida', 8000),
-(7, 'estiercol', 'Cuidos', 8000),
-(15, 'estiercol', 'Cuidos', 2300),
-(44, 'estiercol', 'Cuidos', 8000),
-(56, 'estiercol', 'Cuidos', 2300),
-(255, 'estiercol', 'Insecticida', 8000);
+(1, 'estiercol', 'Insecticida', 2300),
+(2, 'vetenira', 'Insecticida', 2300),
+(4, 'estiercol', 'Cuidos', 2300),
+(44, 'estiercol', 'Cuidos', 8000);
 
 -- --------------------------------------------------------
 
@@ -140,8 +146,7 @@ INSERT INTO `tipo_producto` (`Id_Tipo_Producto`, `Tipo_Producto`) VALUES
 -- Indexes for table `empleado`
 --
 ALTER TABLE `empleado`
-  ADD PRIMARY KEY (`id_empleado`),
-  ADD KEY `id_empleado` (`id_empleado`);
+  ADD PRIMARY KEY (`id_empleado`);
 
 --
 -- Indexes for table `entradas_de_producto`
@@ -179,13 +184,13 @@ ALTER TABLE `tipo_producto`
 -- AUTO_INCREMENT for table `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
-  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables

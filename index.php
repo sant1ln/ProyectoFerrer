@@ -8,57 +8,38 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
+
+<?php
+
+  session_start();
+
+    if(isset($_GET['cerrar_session'])){
+        $_SESSION = array(
+        );
+    }
+
+?>
+
 <body>
 
 
-   <?php 
-   
-   $usuarios = array(
-    'Administradores' => array(
-       'Admin1' => array(
-            'Nombre' => 'Santiago',
-            'contraseña' => 'admin1'
-        ),
-       'Admin2' => array(
-            'Nombre' => 'Estefania',
-            'contraseña' => 'admin2'
-        )
-        
-    ),
-    'Cajeros' => array(
-        'Cajero1' => array(
-            'Nombre' => 'Sara',
-            'contraseña' => 'cj1'
-        ),
-        'Cajero2' => array(
-            'Nombre' => 'Jose Manuel',
-            'contraseña' => 'cj2'
-        )
-    )
-        );
-   echo "<pre>";
-   print_r ($usuarios);
-   echo "</pre>";
-
-   ?>
+  
     <div class="login" id="login">
         <img src="./img/logo.png" alt="Logo">
-        <form  action="" method="POST">
+        <form  id="login" method="POST">
             <label for="usuario">Usuario</label>
             <input class="Login-input" type="text" value="" id="usuario">
             <label for="Contraseña">Contraseña</label>
-            <input class="Login-input" type="password" name="Contraseña" id="Contrasena">
-            <select class="Tipo" name="Tipo" id="Tipo">
-                <option id="selecionar" value="0">Seleciona Tipo</option>
-                <option id="Administrador" value="1">Administrador</option>
-                <option id="Cajero" value="2">Cajero</option>
-            </select>
-    
-            <input type="button" value="Ingresar" id="Ingreso" class="boton btn-aceptar">
+            <input class="Login-input" type="password" name="Contraseña" id="contrasena">
+
+            <input type="hidden" id='Accion' value="login">
+            <input type="submit" value="Ingresar" id="Ingreso" class="boton btn-aceptar">
         </form>
     
     </div>
     <script src="./Scripts/login.js"></script>
+    <script src="./Scripts/sweetalert2.all.min.js"></script>
+
 </body>
 </html>
 

@@ -57,6 +57,8 @@ if($_POST['accion'] == 'crear'){
 }
 
 
+
+
 if($_GET['accion'] == 'borrar'){
     require_once('../funciones/bd_conexion.php');
     // echo json_encode($_GET);

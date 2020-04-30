@@ -1,7 +1,9 @@
 <?php 
-  include_once 'includes/templates/header.php';
-  include_once 'includes/funciones/consultas.php';
- ?>    
+  include 'includes/funciones/sessiones.php';
+  include 'includes/templates/header.php';
+  include 'includes/funciones/consultas.php';
+?>
+    
     <div class="contenedor contenedorA">
         <div class="contenedorInventario">
             <div class="inventarioMORE" id="inventarioMORE"><!-- VER INVENTARIO -->

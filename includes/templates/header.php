@@ -22,7 +22,7 @@
         <ul class="enlace-navegacion">
             <li><a id="vender" class="encalce" href="Venta.php">Vender</a></li>
             <li><a id="admin"  class="encalce" href="Admin.php">Administrador</a></li>
-            <a href="index.php"><i class="fas fa-sign-out-alt Singout"></i></a>
+            <a href="index.php?cerrar_session=true"><i class="fas fa-sign-out-alt Singout"></i></a>
         </ul>
     </nav>
    </header>

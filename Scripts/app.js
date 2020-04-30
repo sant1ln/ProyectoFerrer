@@ -24,7 +24,11 @@ function leerFormularioProductoEntrada(e){
            Accion=document.querySelector('#Accion').value;
 
     if(Cantidad === '' || CodProducto === '' || CedProveedor === ''){
-        MostrarNotificacionE('Todos los campos son obligatorios','error');
+        Swal.fire({
+            type: 'error',
+            title: 'Error',
+            text: 'Ambos campos son obligatorios',
+          })
     }
     else{
         const infoProductoEntrada = new FormData();
@@ -69,7 +73,11 @@ function insertarBDE(datos){
                 document.querySelector('#producto-entrada').reset();
  
                 // Mostrar la notificacion
-                MostrarNotificacionE('Entrada exitosa!', 'correcto');
+                Swal.fire(
+                    'Correcto!',
+                    `Entrada al inventario exitosa!`,
+                    'success'
+                    )
           }
      }
  
@@ -90,8 +98,12 @@ function leerFormularioProducto(e){
           Accion=document.querySelector('#Accion').value;
     
     if(Codigo === '' || Nombre === '' || Tipo === "" || Precio === ''){
-        //DOS PARAMETROS MENSAJE Y CLASE
-        //MostrarNotificacionP('Todos los campos son obligatorios','error');
+        Swal.fire({
+            type: 'error',
+            title: 'Error',
+            text: 'Ambos campos son obligatorios',
+          })
+        
     }else{
         //pasa la validacion crear llamado a ajax
         const infoProducto = new FormData(); //mejor forma para leer datos de formulario a traves de ajax
@@ -190,7 +202,11 @@ function insertarBD(datos) {
                document.querySelector('form').reset();
 
                // Mostrar la notificacion
-               MostrarNotificacionP('Producto Creado Correctamente', 'correcto');
+               Swal.fire(
+                'Exito!',
+                `${respuesta.datos.Nombre} registrado correctamente`,
+                'success'
+                )
          }
     }
 
@@ -212,10 +228,18 @@ function actualizarRegistroP(datos){
           
             if(respuesta.respuesta === 'correcto'){
                 // mostrar notificación de Correcto
-                MostrarNotificacionP('Producto Editado Exitosamente!', 'correcto');
+                Swal.fire(
+                    'Exito!',
+                    'Producto Editado exitosamente!',
+                    'success'
+                    )
            } else {
                 // hubo un error
-                MostrarNotificacionP('Hubo un error...', 'error');
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'Debes Hacer la Edición del Producto',
+                  })
            }
            // Después de 3 segundos redireccionar
            setTimeout(() => {
@@ -261,14 +285,17 @@ function eliminarProductos(e) {
                            e.target.parentElement.parentElement.parentElement.remove();
 
                            //mostrar notifiacion
-                           MostrarNotificacionP('Producto Eliminado','correcto');
+                           Swal.fire(
+                            'Exito!',
+                            'Producto Borrado!',
+                            'success'
+                            )
 
                        }else{
                            //mostrar una notificacion
                           MostrarNotificacionP('No pudo borrarse el producto','error');
                        }
-                     
-                       
+                                    
                    }
               }
 

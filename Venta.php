@@ -1,4 +1,11 @@
-<?php include_once 'includes/templates/header.php'; ?>
+    <?php
+
+      include 'includes/funciones/sessiones.php';
+      include_once 'includes/templates/header-venta.php';
+
+      
+    ?>
+
     <div class="contenedor">
         <section class="Registradora">
             <img src="./img/logo.png" alt="Logo">

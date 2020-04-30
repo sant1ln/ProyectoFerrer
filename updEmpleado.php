@@ -14,10 +14,6 @@ include_once 'includes/funciones/consultas.php';
 
 ?>
 
-
-
-
-
     <div class="inventarioMORE UPDATE" ><!-- AÑADIR  Empleado -->
             <div class="TengoEstilos">
                <img src="./img/logo.png" alt="Logo">

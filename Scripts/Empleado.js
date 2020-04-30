@@ -31,7 +31,11 @@ function leerFormulario(e){
 
     if(cargo === '' || nombreEmpleado === '' || CedulaEmpleado === 
     '' || CelularEmpleado === '' || direccionEmpleado === '' || contrasenaEmpleado === '' ){
-    /*    NotificacionEmpleado("Debe de ingresar todos los campos",'error'); */
+        Swal.fire({
+            type: 'error',
+            title: 'Error',
+            text: 'Ambos campos son obligatorios',
+          })
     }else{
         
         // Pasa validacion, crear llamado a AJAX
