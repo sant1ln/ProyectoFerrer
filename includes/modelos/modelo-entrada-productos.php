@@ -10,10 +10,11 @@ if($_POST [Accion] == 'ingresar'){
     $Cantidad = filter_var($_POST['Cantidad'], FILTER_SANITIZE_NUMBER_INT);
     $CodProducto = filter_var($_POST['CodProducto'], FILTER_SANITIZE_STRING);
     $CedProveedor = filter_var($_POST['CedProveedor'], FILTER_SANITIZE_NUMBER_INT);
+    $Nombre_u = ($_POST['Nombre_u']);
 
     try {
-        $stmt = $conn->prepare("INSERT INTO entradas_de_producto (Cantidad_Producto, Id_Productoo, Cedula_Proveedor) VALUES (?,?,?)");
-        $stmt->bind_param("isi", $Cantidad, $CodProducto, $CedProveedor);
+        $stmt = $conn->prepare("INSERT INTO entradas_de_producto (Cantidad_Producto, Id_Productoo, Cedula_Proveedor,Nombre_Usuarioo) VALUES (?,?,?,?)");
+        $stmt->bind_param("isis", $Cantidad, $CodProducto, $CedProveedor,$Nombre_u);
         $stmt->execute();
         
         if($stmt->affected_rows == 1){

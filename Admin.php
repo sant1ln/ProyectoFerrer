@@ -2,6 +2,8 @@
   include 'includes/funciones/sessiones.php';
   include 'includes/templates/header.php';
   include 'includes/funciones/consultas.php';
+  //echo($_SESSION['nombre']);
+ 
 ?>
     
     <div class="contenedor contenedorA">
@@ -19,6 +21,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Existencia</th>
+                    <th scope="col">Responsable</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,6 +41,7 @@
                                 <td><?php echo $inventario['Nombre_Producto']; ?></td>
                                 <td><?php echo $inventario['Precio_Venta']; ?></td>
                                 <td><?php echo $inventario['existencia']; ?></td>
+                                <td><?php echo $inventario['Nombre_Usuarioo']; ?></td>
                             </tr>
                     <?php } 
                 } ?>
@@ -79,6 +83,10 @@
                         <input type="number" placeholder="Precio" id="Precio" name="Precio" class="form-control">
                       </div>
 
+                   
+                      <input type="hidden" id="Nombre_u" value="<?php echo($_SESSION['nombre']); ?>">
+                  
+
                       <div class="col Enviar">
                         <input type="hidden" id="Accion" value="ingresar">
                         <button type="submit" name="submit" class="btn btn-primary mb-2">Añadir</button>
@@ -95,6 +103,8 @@
                       <th scope="col">Nombre Producto</th>
                       <th scope="col">Tipo Producto</th>
                       <th scope="col">Precio Producto</th>
+                      <th scope="col">Responsable</th>
+                      <th scope="col">Accion</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -109,6 +119,8 @@
                                     <td><?php echo $Producto['Nombre_Producto']; ?></td>
                                     <td><?php echo $Producto['Id_Tipo_Producto']; ?></td>
                                     <td><?php echo $Producto['Precio_Venta']; ?></td>
+                                    <td><?php echo $Producto['Nombre_Usuario']; ?></td>
+
                                     <td>
                                         <a class="btn-editar btn" href="editar.php?id=<?php echo $Producto['Id_Producto']; ?>"><i class="fas fa-pen-square btn-editar"></i></a>
                                         <button data-id=<?php echo $Producto['Id_Producto']; ?> type="button" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
@@ -289,6 +301,8 @@
                           <label for="Valor">Cedula Proveedor</label>
                           <input placeholder="Cedula proveedor" id="CedProveedor" type="number" name="CedulaP" class="form-control">
                         </div>
+
+                        <input type="hidden" id="Nombre_u" value="<?php echo ($_SESSION['nombre']); ?>">
                         
                         <div class="col Enviar">
                           <input type="hidden" id="Accion" value="ingresar">

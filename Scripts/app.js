@@ -21,6 +21,7 @@ function leerFormularioProductoEntrada(e){
      const  Cantidad = document.querySelector('#Cantidad').value,
            CodProducto = document.querySelector('#CodProducto').value,
            CedProveedor = document.querySelector('#CedProveedor').value;
+           Nombre_u = document.querySelector('#Nombre_u').value;
            Accion=document.querySelector('#Accion').value;
 
     if(Cantidad === '' || CodProducto === '' || CedProveedor === ''){
@@ -35,7 +36,10 @@ function leerFormularioProductoEntrada(e){
         infoProductoEntrada.append('Cantidad',Cantidad);
         infoProductoEntrada.append('CodProducto',CodProducto);
         infoProductoEntrada.append('CedProveedor',CedProveedor);
+        infoProductoEntrada.append('Nombre_u',Nombre_u);
         infoProductoEntrada.append('Accion',Accion);
+
+         //console.log(...infoProductoEntrada); //MIRAR QUE ESTAN PASANDO BIEN MIS DATOS
 
         
         if(Accion === 'ingresar'){
@@ -95,6 +99,7 @@ function leerFormularioProducto(e){
           Nombre = document.querySelector('#Nombre').value,
           Tipo = document.querySelector('#Tipo').value,
           Precio = document.querySelector('#Precio').value,
+          Nombre_u = document.querySelector('#Nombre_u').value,
           Accion=document.querySelector('#Accion').value;
     
     if(Codigo === '' || Nombre === '' || Tipo === "" || Precio === ''){
@@ -111,7 +116,9 @@ function leerFormularioProducto(e){
         infoProducto.append('Nombre',Nombre);
         infoProducto.append('Tipo',Tipo);
         infoProducto.append('Precio',Precio);
+        infoProducto.append('Nombre_u',Nombre_u);
         infoProducto.append('Accion',Accion);
+        
 
        //console.log(...infoProducto); //MIRAR QUE ESTAN PASANDO BIEN MIS DATOS
 
@@ -160,6 +167,8 @@ function insertarBD(datos) {
                  <td>${respuesta.datos.Nombre}</td>
                  <td>${respuesta.datos.Tipo}</td>
                  <td>${respuesta.datos.Precio}</td>
+                 <td>${respuesta.datos.Nombre_u}</td>
+
                `; 
 
                //crear contenedor para los botones viene siendo el padre
@@ -225,15 +234,20 @@ function actualizarRegistroP(datos){
         
         if(this.status == 200){
             const respuesta = JSON.parse(xhr.responseText);
+           
+            console.log(Nombre_u);
           
-            if(respuesta.respuesta === 'correcto'){
+            if(respuesta.respuesta === 'correcto' ){
                 // mostrar notificación de Correcto
                 Swal.fire(
                     'Exito!',
                     'Producto Editado exitosamente!',
                     'success'
                     )
-           } else {
+                 setTimeout(() => {
+                        window.location.href = 'Admin.php';
+                        }, 1000);
+        }else {
                 // hubo un error
                 Swal.fire({
                     type: 'error',
@@ -241,10 +255,7 @@ function actualizarRegistroP(datos){
                     text: 'Debes Hacer la Edición del Producto',
                   })
            }
-           // Después de 3 segundos redireccionar
-           setTimeout(() => {
-                window.location.href = 'Admin.php';
-           }, 1000);
+           
             
         }
 

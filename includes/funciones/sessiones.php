@@ -8,6 +8,7 @@ function usuario_autenticado() {
 }
 function revisar_usuario() {
     return isset($_SESSION['nombre']);
+    $h = $_SESSION['nombre'];
 }
 session_start();
 usuario_autenticado();

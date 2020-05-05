@@ -11,10 +11,11 @@ if($_POST [Accion] == 'ingresar'){
     $Nombre = filter_var($_POST['Nombre'], FILTER_SANITIZE_STRING);
     $Tipo = filter_var($_POST['Tipo'], FILTER_SANITIZE_STRING);
     $Precio = filter_var($_POST['Precio'], FILTER_SANITIZE_NUMBER_INT);
+    $Nombre_u = ($_POST['Nombre_u']);
 
     try {
-        $stmt = $conn->prepare("INSERT INTO producto (Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta) VALUES (?,?,?,?)");
-        $stmt->bind_param("issi", $Codigo, $Nombre, $Tipo, $Precio);
+        $stmt = $conn->prepare("INSERT INTO producto (Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta,Nombre_Usuario) VALUES (?,?,?,?,?)");
+        $stmt->bind_param("issis", $Codigo, $Nombre, $Tipo, $Precio,$Nombre_u);
         $stmt->execute();
         
         if($stmt->affected_rows == 1){
@@ -26,6 +27,7 @@ if($_POST [Accion] == 'ingresar'){
                     'Nombre'=>$Nombre,
                     'Tipo'=>$Tipo,
                     'Precio'=>$Precio,
+                    'Nombre_u'=>$Nombre_u
                 )
             );
 
@@ -81,17 +83,19 @@ if($_POST [Accion] == 'editar'){
     $Nombre = filter_var($_POST['Nombre'], FILTER_SANITIZE_STRING);
     $Tipo = filter_var($_POST['Tipo'], FILTER_SANITIZE_STRING);
     $Precio = filter_var($_POST['Precio'], FILTER_SANITIZE_NUMBER_INT);
+    $Nombre_u = ($_POST['Nombre_u']);
    
     try{
-     $stmt =  $conn->prepare("UPDATE producto SET Nombre_Producto = ?, Id_Tipo_Producto = ?, Precio_Venta = ? WHERE Id_Producto = ?");
-    $stmt->bind_param("ssii", $Nombre, $Tipo,  $Precio, $Codigo);
+     $stmt =  $conn->prepare("UPDATE producto SET Nombre_Producto = ?, Id_Tipo_Producto = ?, Precio_Venta = ?, Nombre_Usuario = ?  WHERE Id_Producto = ?");
+    $stmt->bind_param("ssisi", $Nombre, $Tipo,  $Precio, $Nombre_u, $Codigo);
   
    
    
         $stmt->execute();
         if($stmt->affected_rows == 1){
             $respuesta = array(
-                'respuesta' => 'correcto'
+                'respuesta' => 'correcto',
+                'nombre_u' => $Nombre_u
             );
         }else{
             $respuesta = array(

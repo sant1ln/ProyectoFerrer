@@ -17,8 +17,6 @@ include_once 'includes/funciones/consultas.php';
  
 </pre>
 
-
-
 <div class="inventarioMORE UPDATE" id="inventarioADD"><!-- AÑADIR A INVENTARIO -->
                 <div class="TengoEstilos">
                   <img src="./img/logo.png" alt="Logo">
@@ -50,6 +48,11 @@ include_once 'includes/funciones/consultas.php';
                       <div class="col">
                         <label for="Nombre">Precio</label>
                         <input type="number" placeholder="Precio" id="Precio" name="Precio" class="form-control" value="<?php echo ($producto['Precio_Venta']) ? $producto['Precio_Venta'] : ''; ?>" >
+                      </div>
+
+                      <div class="col">
+                        <label for="Nombre">Responsable</label>
+                        <input type="text" placeholder="Responsable" id="Nombre_u" name="Precio" class="form-control" value="<?php echo($producto['Nombre_Usuario']) ? $producto['Nombre_Usuario'] : '';?>" >
                       </div>
 
                       <div class="col Enviar">
