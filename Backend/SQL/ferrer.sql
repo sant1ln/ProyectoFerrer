@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 30, 2020 at 05:47 AM
+-- Generation Time: May 06, 2020 at 07:26 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.7
 
@@ -44,7 +44,6 @@ CREATE TABLE `empleado` (
 
 INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`) VALUES
 (13, 'Cajero', 'Sara', '154684', '156848', 'CL 107S SUR 50 99', '$2y$12$uQYOVJ0aiep0ST.O9CmnguI9KKNSr3K4J3LUM2TLUorMTkjD3I6uW'),
-(14, 'Cajero', 'Jose Manuel', '546845', '584', 'CL 107S SUR 50 99', '$2y$12$5BnTBOM3yvYTtKue4Ao76ONIRdktTBw91ySc9FFZbzgGhNxyo5hT6'),
 (15, 'Administrador', 'Santiago', '155', '5417', 'CL 107S SUR 50 99', '$2y$12$cQb2nl25PQczvoM.NSnFs.Stc9AXxftwwY4ly05qPn/QqAlImhOlu'),
 (16, 'Administrador', 'Estefania', '15415', '54875', 'CL 107S SUR 50 99', '$2y$12$yVi8i644FYgvu/0AG.ceBeLcjMFEU11oX0b3S6wlyctH/CRdsKWcW'),
 (17, 'Administrador', 'Juan Manuel', '141', '31750220297', 'CL 107S SUR 50 99', '$2y$12$19DQWIWDQ2Erv5l2C2BoguX4Aj0XwmtRKBLlMC3CFnM6yAbn7P7aC');
@@ -59,20 +58,18 @@ CREATE TABLE `entradas_de_producto` (
   `Id_entrada_producto` int(100) UNSIGNED NOT NULL,
   `Cantidad_Producto` int(100) NOT NULL,
   `Id_Productoo` int(100) NOT NULL,
-  `Cedula_Proveedor` bigint(200) UNSIGNED NOT NULL
+  `Cedula_Proveedor` bigint(200) UNSIGNED NOT NULL,
+  `Nombre_Usuarioo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `entradas_de_producto`
 --
 
-INSERT INTO `entradas_de_producto` (`Id_entrada_producto`, `Cantidad_Producto`, `Id_Productoo`, `Cedula_Proveedor`) VALUES
-(12, 1, 1, 21549425),
-(13, 2589, 44, 21549425),
-(14, 44, 1, 21549425),
-(15, 58, 1, 21549425),
-(16, 7, 1, 21549425),
-(17, 4, 1, 21549425);
+INSERT INTO `entradas_de_producto` (`Id_entrada_producto`, `Cantidad_Producto`, `Id_Productoo`, `Cedula_Proveedor`, `Nombre_Usuarioo`) VALUES
+(30, 25, 2, 21549425, 'Estefania'),
+(31, 47, 2, 21549425, 'Santiago'),
+(32, 14, 2, 21549425, 'Estefania');
 
 -- --------------------------------------------------------
 
@@ -84,18 +81,16 @@ CREATE TABLE `producto` (
   `Id_Producto` int(100) NOT NULL,
   `Nombre_Producto` varchar(25) NOT NULL,
   `Id_Tipo_Producto` varchar(50) NOT NULL,
-  `Precio_Venta` int(11) NOT NULL
+  `Precio_Venta` int(11) NOT NULL,
+  `Nombre_Usuario` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `producto`
 --
 
-INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`) VALUES
-(1, 'estiercol', 'Insecticida', 2300),
-(2, 'vetenira', 'Insecticida', 2300),
-(4, 'estiercol', 'Cuidos', 2300),
-(44, 'estiercol', 'Cuidos', 8000);
+INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`, `Nombre_Usuario`) VALUES
+(2, 'dogshow', 'Cuidos', 2300, ' Santiago');
 
 -- --------------------------------------------------------
 
@@ -190,7 +185,7 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT for table `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
-  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
