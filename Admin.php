@@ -191,7 +191,7 @@
 
                     <!-- Ver empelados -->
                     <table class="table table-striped" id="Lista_empleados">
-                  <thead>
+                    <thead>
                     <tr>
                       <!-- <th scope="col">Codigo</th> -->
                       <th scope="col">Cargo</th>
@@ -202,8 +202,8 @@
                       <th scope="col">Acciones</th>
                       
                     </tr>
-                  </thead>
-                  <tbody>
+                    </thead>
+                    <tbody>
                     <?php   $empleados = obtenerEmpleados();
                     
                    if($empleados->num_rows){
@@ -223,34 +223,69 @@
                         </td>
                       </tr>
                     <?php  }
-                  } ?>
+                    } ?>
                     </tbody>
-              </table>
+                    </table>
 
                   </div>
             </div>
 
-            <div class="inventarioMORE" id="EmpladoMORE"><!-- Ver Provedores-->
+            <div class="inventarioMORE" id="EmpladoMORE"><!-- AÑADIR Provedores-->
               <div class="TengoEstilos">
-                              <img src="./img/logo.png" alt="Logo">
-              <h3>Proveedores</h3>
-              <i class="fas fa-sign-out-alt Singout" id="CerrarEmpleados"></i>
+                 <img src="./img/logo.png" alt="Logo">
+                 <h3>Proveedores</h3>
+                  <i class="fas fa-sign-out-alt Singout" id="CerrarEmpleados"></i>
               </div>
-              <table class="table table-striped" id="Lista_empleados">
-                  <thead>
+              <div class="container">
+                    
+                    <form class="Anadir" id="Fproveedor" method="POST">
+                       <div class="form-row">
+                                               
+                        <div class="col">
+                          <label for="cedula">Cedula</label>
+                          <input type="number" name="cedula" id="CedulaProveedor" class="form-control">
+                        </div>
+
+                        <div class="col">
+                          <label for="nombre">Nombre</label>
+                          <input type="text" name="nombre" id="nombreProveedor" class="form-control">
+                        </div>                                              
+                        
+                        
+                        <div class="col">
+                          <label for="celular">Telefono</label>
+                          <input type="tel" name="celular" id="CelularProveedor" class="form-control" >
+                        </div>
+
+                        <div class="col">
+                          <label for="direccion">Direccion</label>
+                          <input type="text" name="direccion" id="direccionProveedor" class="form-control" >
+                        </div>
+
+                        <div class="col Enviar">
+                          <input type="hidden" id="AccionP" value="crear">
+                          <button type="submit" class="btn btn-primary mb-2">Añadir</button>
+                        </div>
+
+                      </div>
+                    </form>
+
+                    <!-- Ver empelados -->
+                    <table class="table table-striped" id="Lista_empleados">
+                    <thead>
                     <tr>
                       <!-- <th scope="col">Codigo</th> -->
-                      <th scope="col">Cargo</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Cedula</th>
-                      <th scope="col">Telefono</th>
-                      <th scope="col">Direccion</th>
+                      <th scope="col">Cedula provedor</th>
+                      <th scope="col">Nombre provedor</th>
+                      <th scope="col">Telefono provedor</th>
+                      <th scope="col">Direccion provedor</th>
+                      
                       <th scope="col">Acciones</th>
                       
                     </tr>
-                  </thead>
-                  <tbody>
-                    <?php   $empleados = obtenerEmpleados();
+                    </thead>
+                    <tbody>
+                    <?php /*   $empleados = obtenerEmpleados();
                     
                    if($empleados->num_rows){
                       
@@ -269,9 +304,12 @@
                         </td>
                       </tr>
                     <?php  }
-                  } ?>
+                    }  */?>
                     </tbody>
-              </table>
+                    </table>
+
+                  </div>   
+             
             </div>
 
             <div class="inventarioMORE" id="EntradaADD"><!-- AÑADIR  entrada -->
