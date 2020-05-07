@@ -1,6 +1,7 @@
 const formularioProducto = document.querySelector('#producto'),
       formularioProductoEntrada = document.querySelector('#producto-entrada'),
-      listadoProductos = document.querySelector('#listado-productos tbody');
+      listadoProductos = document.querySelector('#listado-productos tbody'),
+      listadoEntrada = document.querySelector('#listado-entrada tbody');
 
 eventListeners();
 
@@ -12,6 +13,10 @@ function eventListeners(){
 
     //listener para eliminar producto
     listadoProductos.addEventListener('click',eliminarProductos);
+
+    //listener para eliminar la entrada
+    listadoEntrada.addEventListener('click',eliminarEntrada);
+    
 }
 
 function leerFormularioProductoEntrada(e){
@@ -69,10 +74,6 @@ function insertarBDE(datos){
                // leemos la respuesta de PHP
                const respuesta = JSON.parse(xhr.responseText);
 
-             
-               
-
-
                 // Resetear el formulario
                 document.querySelector('#producto-entrada').reset();
  
@@ -82,6 +83,12 @@ function insertarBDE(datos){
                     `Entrada al inventario exitosa!`,
                     'success'
                     )
+                    .then(resultado => {
+                        if(resultado.value){
+                            location.reload();
+                        }
+                         
+                     })
           }
      }
  
@@ -315,6 +322,65 @@ function eliminarProductos(e) {
          }else{
              console.log('lo pensare');
          }
+    }
+}
+
+
+function eliminarEntrada(e){
+    if( e.target.parentElement.classList.contains('btn-borrar') ) {
+
+        //tomar el id del elemento
+        const id = e.target.parentElement.getAttribute('data-id');
+        
+        console.log(id);
+
+        const respuesta = confirm('Estas Seguro (a) ?');
+
+        if(respuesta){
+            //console.log('toy seguro');
+
+            //lamado a ajax
+            //crear el objeit
+            const xhr = new XMLHttpRequest();
+
+            //abrir la conexion
+            xhr.open('GET', `includes/modelos/modelo-entrada-productos.php?id=${id}&Accion=borrar`, true);
+
+            //leeer la respuesta 
+            xhr.onload = function(){
+                if(this.status === 200) {
+                    const respuesta = JSON.parse(xhr.responseText);
+                    console.log(respuesta);
+                   if(respuesta.respuesta == 'correcto'){
+                       //eliminar el registro en el dom
+                      
+
+                       //mostrar notifiacion
+                       Swal.fire(
+                        'Exito!',
+                        'Entrada Borrada!',
+                        'success'
+                        )
+                        
+                        setTimeout(() => {
+                            location.reload();
+                            }, 1000);
+
+                   }else{
+                       //mostrar una notificacion
+                      MostrarNotificacionP('No pudo borrarse el producto','error');
+                   }
+                                
+               }
+            }
+
+            //enviar la peticion
+            xhr.send();
+             
+        }
+
+    
+
     }
 }
 

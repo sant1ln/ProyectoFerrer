@@ -13,7 +13,7 @@
                 <img src="./img/logo.png" alt="Logo">
                 <i class="fas fa-sign-out-alt Singout" id="CerrarInventario"></i>
                 </div>
-              <table class="table table-striped">
+              <table id="listado-entrada" class="table table-striped" >
                 <thead>
                   <tr>
                     <th scope="col">Codigo</th>
@@ -22,6 +22,8 @@
                     <th scope="col">Valor</th>
                     <th scope="col">Existencia</th>
                     <th scope="col">Responsable</th>
+                    <th scope="col">Accion</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -42,6 +44,12 @@
                                 <td><?php echo $inventario['Precio_Venta']; ?></td>
                                 <td><?php echo $inventario['existencia']; ?></td>
                                 <td><?php echo $inventario['Nombre_Usuarioo']; ?></td>
+
+                                <td>
+                                        <a class="btn-editar btn" href="editar-entrada.php"><i class="fas fa-pen-square btn-editar"></i></a>
+                                        <button data-id="<?php echo $inventario['Id_Producto']; ?>" type="button"  class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
+                                    </td>
+                                
                             </tr>
                     <?php } 
                 } ?>

@@ -21,7 +21,14 @@ if($_POST [Accion] == 'ingresar'){
 
             $respuesta = array(
                 'respuesta'=> 'correcto',
-                'id'=> $stmt->insert_Id_entrada_produc
+                'datos' => array(
+                    'cantidad' => $Cantidad,
+                    'codProducto' => $CodProducto,
+                    'cedProveedir' => $CedProveedor,
+                    'nombre_usuario' => $Nombre_u,
+                    'id'=> $stmt->insert_id
+
+                )               
             );
 
         }
@@ -38,7 +45,34 @@ if($_POST [Accion] == 'ingresar'){
 
 
 }
-//echo json_encode($_POST['Accion']);
+
+
+if($_GET ['Accion'] == 'borrar'){
+
+    require_once('../funciones/bd_conexion.php');
+
+    $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+    
+    try{
+        $stmt = $conn->prepare("DELETE FROM entradas_de_producto WHERE 	Id_Productoo = ? ");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+       
+            $respuesta = array(
+                'respuesta' => 'correcto',
+
+            );
+        
+
+    }catch(Exception $e){
+        $respuesta = array(
+            'error'=> $e->getMessage()
+        );
+    }
+    echo json_encode($respuesta);
+}
+
 
 
 
