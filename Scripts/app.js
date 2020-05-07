@@ -73,22 +73,37 @@ function insertarBDE(datos){
               
                // leemos la respuesta de PHP
                const respuesta = JSON.parse(xhr.responseText);
+              
 
                 // Resetear el formulario
                 document.querySelector('#producto-entrada').reset();
- 
-                // Mostrar la notificacion
-                Swal.fire(
-                    'Correcto!',
-                    `Entrada al inventario exitosa!`,
-                    'success'
-                    )
-                    .then(resultado => {
-                        if(resultado.value){
-                            location.reload();
-                        }
-                         
-                     })
+
+                if(respuesta == null){
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Error',
+                        text: 'El Codigo del producto o la cedula del proveedor no existe!'
+                      })
+                    
+                }
+
+                if(respuesta.respuesta == 'correcto'){
+                    Swal.fire(
+                        'Correcto!',
+                        `Entrada al inventario exitosa!`,
+                        'success'
+                        )
+                        .then(resultado => {
+                            if(resultado.value){
+                                location.reload();
+                            }
+                             
+                         })
+
+                }
+               
+
+               
           }
      }
  
@@ -356,11 +371,13 @@ function eliminarEntrada(e){
                       
 
                        //mostrar notifiacion
-                       Swal.fire(
-                        'Exito!',
-                        'Entrada Borrada!',
-                        'success'
-                        )
+                       Swal.fire({
+                        position: 'top-center',
+                        type: 'success',
+                        title: 'Se ha eliminado la entrada del inventario',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
                         
                         setTimeout(() => {
                             location.reload();

@@ -24,7 +24,7 @@ if($_POST [Accion] == 'ingresar'){
                 'datos' => array(
                     'cantidad' => $Cantidad,
                     'codProducto' => $CodProducto,
-                    'cedProveedir' => $CedProveedor,
+                    'cedProveedor' => $CedProveedor,
                     'nombre_usuario' => $Nombre_u,
                     'id'=> $stmt->insert_id
 
