@@ -16,7 +16,7 @@ function eventListenersE(){
 // leer form
 function leerFormulario(e){
     e.preventDefault();
-    // console.log("Presionaste añadir");
+    console.log("Presionaste añadir");
 
     //Leer datos
     const cargo = document.querySelector('#cargo').value;
@@ -34,7 +34,7 @@ function leerFormulario(e){
         Swal.fire({
             type: 'error',
             title: 'Error',
-            text: 'Ambos campos son obligatorios',
+            text: 'Todos los son obligatorios',
           })
     }else{
         

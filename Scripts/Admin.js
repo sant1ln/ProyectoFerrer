@@ -51,6 +51,10 @@ var botonVerE = document.getElementById('botonVerE').addEventListener('click',Ve
 var CerrarEmpleados = document.getElementById('CerrarEmpleados').addEventListener('click',CerrarEmpleados);
 var EmpladoMORE = document.getElementById('EmpladoMORE');
 
+    /* Temporal */
+EmpladoMORE.style.display = 'flex';
+    admins.style.display = 'none';
+    /* Temporal */
 function VerEmpleado(){
     EmpladoMORE.style.display = 'flex';
     admins.style.display = 'none';

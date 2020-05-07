@@ -40,8 +40,8 @@ function leerFormularioLogin(e){
                 
                 if(respuesta.Accion === 'login' && respuesta.tipo_empleado === 'Administrador'){
                     Swal({
-                        title: 'Login Correcto',
-                        text: 'Presiona para continuar',
+                        title: 'Iniciando Sesion...',
+                        text: `Bienvenido ${usuario}`,
                         type: 'success'
 
                     })
@@ -53,8 +53,8 @@ function leerFormularioLogin(e){
                     })
                 }else if(respuesta.Accion === 'login' && respuesta.tipo_empleado === 'Cajero'){
                     Swal({
-                        title: 'Login Correcto',
-                        text: 'Presiona para continuar',
+                        title: 'Iniciando Sesion...',
+                        text: `Bienvenido ${usuario}`,
                         type: 'success'
 
                     })
@@ -71,6 +71,7 @@ function leerFormularioLogin(e){
                         type: 'error',
                         title: 'Error',
                         text: 'Contraseña o Usuario incorrecto!',
+                        footer: '<a href="#">¿Olvidaste tu Contraseña?</a>'
                       })
 
                 }
