@@ -11,6 +11,7 @@
             <div class="inventarioMORE" id="inventarioMORE"><!-- VER INVENTARIO -->
                 <div class="TengoEstilos">
                 <img src="./img/logo.png" alt="Logo">
+                <h3>Ver inventario</h3>
                 <i class="fas fa-sign-out-alt Singout" id="CerrarInventario"></i>
                 </div>
               <table id="listado-entrada" class="table table-striped" >
@@ -62,6 +63,7 @@
             <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR A INVENTARIO -->
                 <div class="TengoEstilos">
                   <img src="./img/logo.png" alt="Logo">
+                  <h3>Añadir Inventario</h3>
                   <i class="fas fa-sign-out-alt Singout" id="CerrarAnadir"></i>
                 </div>
                 <div class="container">
@@ -148,7 +150,7 @@
             <div class="inventarioMORE" id="EmpleadoADD"><!-- AÑADIR  Empleado -->
                   <div class="TengoEstilos">
                      <img src="./img/logo.png" alt="Logo">
-                      <h3>AÑADIR EMPLEADO</h3>
+                      <h3>Empleados</h3>
                       <i class="fas fa-sign-out-alt Singout" id="CerrarEmpleado"></i>
                   </div>
                   <div class="container">
@@ -250,7 +252,7 @@
                        <div class="form-row">
                                                
                         <div class="col">
-                          <label for="cedula">Cedula</label>
+                          <label for="cedula">Cedula - Nit</label>
                           <input type="number" name="cedula" id="CedulaProveedor" class="form-control">
                         </div>
 
@@ -262,7 +264,7 @@
                         
                         <div class="col">
                           <label for="celular">Telefono</label>
-                          <input type="tel" name="celular" id="CelularProveedor" class="form-control" >
+                          <input type="number" name="celular" id="CelularProveedor" class="form-control" >
                         </div>
 
                         <div class="col">
@@ -279,7 +281,7 @@
                     </form>
 
                     <!-- Ver empelados -->
-                    <table class="table table-striped" id="Lista_empleados">
+                    <table class="table table-striped" id="Lista_Provedores">
                     <thead>
                     <tr>
                       <!-- <th scope="col">Codigo</th> -->
@@ -323,7 +325,7 @@
             <div class="inventarioMORE" id="EntradaADD"><!-- AÑADIR  entrada -->
                   <div class="TengoEstilos">
                     <img src="./img/logo.png" alt="Logo">
-                    <h3>AÑADIR ENTRADA</h3>
+                    <h3>Añadir entrada</h3>
                     <i class="fas fa-sign-out-alt Singout" id="CerrarAnadirEntrada"></i>
                   </div>
                   <div class="container">
@@ -399,7 +401,7 @@
               </div>
               <div class="seccionR"><!-- Empleado -->
                 <div>
-                    <h2>Empleados</h2>
+                    <h3>Empleados y Proveedores</h3>
                 </div>
                 <div class="reporte inventario">
                     <input type="button" id="botonAnadirE" class="boton btn-aceptar ADD" value="Añadir Empleado">

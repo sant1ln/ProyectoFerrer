@@ -262,7 +262,13 @@ li a:hover{
     text-align: center;
     background-color: #35682d;
     color: #fff;
-     text-transform: uppercase;
+    
+}
+
+.seccionR h3{
+    text-align: center;
+    background-color: #35682d;
+    color: #fff;
 }
 
 

@@ -19,7 +19,7 @@
     <div class="Home">
     <nav class="TengoEstilos">
         <img src="./img/logo.png" alt="Logo">
-        <h1><?php echo($_SESSION['nombre']); ?> </h1>
+        <h1><?php /* echo($_SESSION['nombre']); */ ?> </h1>
         <ul class="enlace-navegacion">
             <li><a id="vender" class="encalce" href="Venta.php">Vender</a></li>
             <li><a id="admin"  class="encalce" href="Admin.php">Administrador</a></li>

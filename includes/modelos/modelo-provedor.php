@@ -13,10 +13,10 @@
             $stmt = $conn->prepare("INSERT INTO proveedor (Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor) VALUES (?,?,?,?) ");
             $stmt->bind_param("ssss",$cedula, $nombre, $Telefono,$direccion );
             $stmt->execute();
-            $respuesta = array(
+          /*   $respuesta = array(
                 'respuesta' => $stmt->error_list,
                 'error' => $stmt->error
-            );
+            ); */
             if($stmt->affected_rows == 1){
 
                 $respuesta = array(
@@ -29,6 +29,11 @@
                     
                 ); 
             
+            }else{
+                $respuesta = array(
+                    'respuesta' => 'error',
+                    'nombre' => $nombre
+                );
             }
             $stmt->close();
          $conn->close();
