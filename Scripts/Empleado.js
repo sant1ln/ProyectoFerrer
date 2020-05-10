@@ -196,20 +196,13 @@ function actualizarRegistro(datosU){
                 // mostrar notificación de Correcto
                 Swal.fire(
                     'Exito!',
-                    'Producto Editado exitosamente!',
+                    'Usuario Editado exitosamente!',
                     'success'
                     )
                  setTimeout(() => {
                         window.location.href = 'Admin.php';
                         }, 1000);
-        }else {
-                // hubo un error
-                Swal.fire({
-                    type: 'error',
-                    title: 'Error',
-                    text: 'Debes Hacer la Edición del Producto',
-                  })
-           }
+        }
             
         }
 

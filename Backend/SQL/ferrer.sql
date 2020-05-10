@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 10-05-2020 a las 06:15:02
+-- Tiempo de generación: 10-05-2020 a las 06:25:28
 -- Versión del servidor: 5.7.24
 -- Versión de PHP: 7.3.7
 
@@ -43,8 +43,9 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`) VALUES
-(17, 'Administrador', 'Juan Manuel', '141', '31750220297', 'CL 107S SUR 50 99', '$2y$12$nkfLFENaLPTQRWSQh1bwyuU2WFr8sop99pFrQPvmTzFpZ2E5FB/Wu'),
-(19, 'Administrador', 'Estefania', '212514', '325', 'CL 107S SUR 50 99', '$2y$12$Qs3p8bKDhyXUQaDCaTDRoOG2PbWYaPuxwbDyhj7J/9J5TuQut1Frq');
+(17, 'Administrador', 'Juan Manuel', '141', '31750220297', 'CL 107S SUR 50 99', '$2y$12$lYlPxSvJtLGZxjzFYVeO8eNT9FZYqXX5iVe937MFeI5bQ5J6pSNIy'),
+(19, 'Administrador', 'Estefania', '212514', '325', 'CL 107S SUR 50 99', '$2y$12$dEr1PeuRPlawbpnDp1fueuaLFw50pb2DiZeOJ8caz6CgReIl6mWla'),
+(20, 'Administrador', 'Santiago', '22', '22', 'CL 107S SUR 50 99', '$2y$12$Hmb69IolUJfEpQvrFN4f/.dYT.IGqHdq/7YfdmO8V67Pypn5Vqa3i');
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,7 @@ ALTER TABLE `tipo_producto`
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `entradas_de_producto`
