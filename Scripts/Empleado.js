@@ -180,20 +180,36 @@ function eliminarContacto(e){
 
 
 function actualizarRegistro(datosU){
-    /* console.log(...datosU); */
+    //console.log(...datosU); 
 
     const xhr = new XMLHttpRequest();
 
     xhr.open('POST', 'includes/modelos/mod-editarEmpleado.php', true);
 
     xhr.onload = function(){
-        if(this.status == 200){
-
-            console.log(xhr.responseText);
-            
+        if(this.status == 200){            
             const respuesta = JSON.parse(xhr.responseText);
          
             console.log(respuesta);
+
+            if(respuesta.respuesta === 'correcto' ){
+                // mostrar notificación de Correcto
+                Swal.fire(
+                    'Exito!',
+                    'Producto Editado exitosamente!',
+                    'success'
+                    )
+                 setTimeout(() => {
+                        window.location.href = 'Admin.php';
+                        }, 1000);
+        }else {
+                // hubo un error
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'Debes Hacer la Edición del Producto',
+                  })
+           }
             
         }
 

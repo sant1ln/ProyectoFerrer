@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 06, 2020 at 07:26 PM
--- Server version: 5.7.24
--- PHP Version: 7.3.7
+-- Servidor: localhost:3306
+-- Tiempo de generación: 10-05-2020 a las 06:15:02
+-- Versión del servidor: 5.7.24
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ferrer`
+-- Base de datos: `ferrer`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empleado`
+-- Estructura de tabla para la tabla `empleado`
 --
 
 CREATE TABLE `empleado` (
@@ -39,19 +39,17 @@ CREATE TABLE `empleado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `empleado`
+-- Volcado de datos para la tabla `empleado`
 --
 
 INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`) VALUES
-(13, 'Cajero', 'Sara', '154684', '156848', 'CL 107S SUR 50 99', '$2y$12$uQYOVJ0aiep0ST.O9CmnguI9KKNSr3K4J3LUM2TLUorMTkjD3I6uW'),
-(15, 'Administrador', 'Santiago', '155', '5417', 'CL 107S SUR 50 99', '$2y$12$cQb2nl25PQczvoM.NSnFs.Stc9AXxftwwY4ly05qPn/QqAlImhOlu'),
-(16, 'Administrador', 'Estefania', '15415', '54875', 'CL 107S SUR 50 99', '$2y$12$yVi8i644FYgvu/0AG.ceBeLcjMFEU11oX0b3S6wlyctH/CRdsKWcW'),
-(17, 'Administrador', 'Juan Manuel', '141', '31750220297', 'CL 107S SUR 50 99', '$2y$12$19DQWIWDQ2Erv5l2C2BoguX4Aj0XwmtRKBLlMC3CFnM6yAbn7P7aC');
+(17, 'Administrador', 'Juan Manuel', '141', '31750220297', 'CL 107S SUR 50 99', '$2y$12$nkfLFENaLPTQRWSQh1bwyuU2WFr8sop99pFrQPvmTzFpZ2E5FB/Wu'),
+(19, 'Administrador', 'Estefania', '212514', '325', 'CL 107S SUR 50 99', '$2y$12$Qs3p8bKDhyXUQaDCaTDRoOG2PbWYaPuxwbDyhj7J/9J5TuQut1Frq');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entradas_de_producto`
+-- Estructura de tabla para la tabla `entradas_de_producto`
 --
 
 CREATE TABLE `entradas_de_producto` (
@@ -63,18 +61,17 @@ CREATE TABLE `entradas_de_producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `entradas_de_producto`
+-- Volcado de datos para la tabla `entradas_de_producto`
 --
 
 INSERT INTO `entradas_de_producto` (`Id_entrada_producto`, `Cantidad_Producto`, `Id_Productoo`, `Cedula_Proveedor`, `Nombre_Usuarioo`) VALUES
-(30, 25, 2, 21549425, 'Estefania'),
-(31, 47, 2, 21549425, 'Santiago'),
-(32, 14, 2, 21549425, 'Estefania');
+(124, 2, 4, 21549425, 'Estefania'),
+(126, 14, 4, 1026162599, 'Estefania');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 CREATE TABLE `producto` (
@@ -86,16 +83,16 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `producto`
+-- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`, `Nombre_Usuario`) VALUES
-(2, 'dogshow', 'Cuidos', 2300, ' Santiago');
+(4, 'estiercolld', 'Abonos', 2300, ' Estefania');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proveedor`
+-- Estructura de tabla para la tabla `proveedor`
 --
 
 CREATE TABLE `proveedor` (
@@ -106,16 +103,17 @@ CREATE TABLE `proveedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `proveedor`
+-- Volcado de datos para la tabla `proveedor`
 --
 
 INSERT INTO `proveedor` (`Cedula_Proveedor`, `Nombre_proveedor`, `Telefono_proveedor`, `Ciudad_proveedor`) VALUES
-(21549425, 'janneth', 3175022920, 'medellin');
+(21549425, 'janneth', 3175022920, 'medellin'),
+(1026162599, 'Estefania', 3004760587, 'CL 107S SUR 50 99');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_producto`
+-- Estructura de tabla para la tabla `tipo_producto`
 --
 
 CREATE TABLE `tipo_producto` (
@@ -124,7 +122,7 @@ CREATE TABLE `tipo_producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tipo_producto`
+-- Volcado de datos para la tabla `tipo_producto`
 --
 
 INSERT INTO `tipo_producto` (`Id_Tipo_Producto`, `Tipo_Producto`) VALUES
@@ -134,17 +132,18 @@ INSERT INTO `tipo_producto` (`Id_Tipo_Producto`, `Tipo_Producto`) VALUES
 ('Semillas', 'Semillas');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `empleado`
+-- Indices de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  ADD PRIMARY KEY (`id_empleado`);
+  ADD PRIMARY KEY (`id_empleado`),
+  ADD KEY `id_empleado` (`id_empleado`);
 
 --
--- Indexes for table `entradas_de_producto`
+-- Indices de la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
   ADD PRIMARY KEY (`Id_entrada_producto`),
@@ -152,7 +151,7 @@ ALTER TABLE `entradas_de_producto`
   ADD KEY `fk_Entradas_proveedor` (`Cedula_Proveedor`);
 
 --
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`Id_Producto`),
@@ -160,46 +159,46 @@ ALTER TABLE `producto`
   ADD KEY `Id_Tipo_Producto` (`Id_Tipo_Producto`);
 
 --
--- Indexes for table `proveedor`
+-- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`Cedula_Proveedor`);
 
 --
--- Indexes for table `tipo_producto`
+-- Indices de la tabla `tipo_producto`
 --
 ALTER TABLE `tipo_producto`
   ADD PRIMARY KEY (`Id_Tipo_Producto`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `empleado`
+-- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `entradas_de_producto`
+-- AUTO_INCREMENT de la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
-  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `entradas_de_producto`
+-- Filtros para la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
   ADD CONSTRAINT `fk_Entradas_proveedor` FOREIGN KEY (`Cedula_Proveedor`) REFERENCES `proveedor` (`Cedula_Proveedor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_id_productos` FOREIGN KEY (`Id_Productoo`) REFERENCES `producto` (`Id_Producto`);
 
 --
--- Constraints for table `producto`
+-- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `fk_producto_tipoproducto` FOREIGN KEY (`Id_Tipo_Producto`) REFERENCES `tipo_producto` (`Id_Tipo_Producto`) ON DELETE CASCADE ON UPDATE CASCADE;

@@ -10,6 +10,7 @@ if($_POST['accion'] == 'editar'){
     $celular   = filter_var($_POST['celular'], FILTER_SANITIZE_STRING);
     $direccion = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
     $pass      = filter_var($_POST['pass'], FILTER_SANITIZE_STRING);
+    $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
     $idempleado = ($_POST['id_empleado']);
 
 
@@ -20,17 +21,19 @@ if($_POST['accion'] == 'editar'){
     $hash_password = password_hash($pass, PASSWORD_BCRYPT, $opciones);
     
     try{
-        $stmt = $conn->prepare("UPDATE empleado SET Cargo = ?, Nombra = ?, Cedula = ?, Celular = ?, Direccion = ?, passwd = ? WHERE id_empleado = ?");
-        $stmt->bind_param("sssssss",$cargo, $nombre, $cedula, $celular, $direccion, $hash_password, $idempleado);
+        $stmt = $conn->prepare("UPDATE empleado SET Cargo = ?, Nombre = ?, Cedula = ?, Celular = ?, Direccion = ?, passwd = ? WHERE id_empleado = ?");
+        $stmt->bind_param("ssssssi",$cargo, $nombre, $cedula, $celular, $direccion, $hash_password, $idempleado);
         $stmt->execute();
-        $respuesta = array(
-            'respuesta' => $stmt->error_list,
-            'error' => $stmt->error
-        ); 
+        
         if($stmt->affected_rows == 1){
             $respuesta = array(
                 'respuesta' => 'correcto',
-                'nombre' => $nombre
+               
+            );
+        }else{
+            $respuesta = array(
+                'respuesta' => 'error'
+
             );
         }
         $stmt->close();

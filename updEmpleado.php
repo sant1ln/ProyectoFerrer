@@ -8,13 +8,10 @@ include_once 'includes/funciones/consultas.php';
         if(!$id){
             die('No es valido');
         }
-        /* var_dump($id); */
+        //var_dump($id); 
         $resultado = obtenerEmpleado($id);
         $contacto = $resultado->fetch_assoc();
-        
-
 ?>
-
     <div class="inventarioMORE UPDATE" ><!-- AÑADIR  Empleado -->
             <div class="TengoEstilos">
                <img src="./img/logo.png" alt="Logo">
@@ -61,11 +58,18 @@ include_once 'includes/funciones/consultas.php';
 
                             <div class="col">
                               <label for="contraseña">Nueva Contraseña</label>
-                              <input type="password" name="contraseña" id="passEmpleado" class="form-control"  >
+                              <input type="password" name="contraseña" id="passEmpleado" class="form-control" 
+                              value="<?php echo $contacto['passwd'] ?>" >
                              </div> 
+
                               <input type="hidden" value="<?php echo $id ?>" id="id_empleado">
+
                             <div class="col Enviar">
                               <input type="hidden" id="Accion2" value="editar">
+                              <?php if(isset($contacto['id'])){?>
+                                <input type="hidden" id="id" value=" <?php echo $contacto['id'] ?>">
+
+                              <?php } ?>
                               <button type="submit"  class="btn btn-primary mb-2">Editar</button>
                             </div>
 
