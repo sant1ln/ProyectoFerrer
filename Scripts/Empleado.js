@@ -7,11 +7,8 @@ eventListenersE();
 function eventListenersE(){
         // cuando el form se ejecuta;
         Formularioempleado.addEventListener('submit',leerFormulario);
-        if(Lista_empleados){
-
-            Lista_empleados.addEventListener('click',eliminarContacto)
-        }
-
+        Lista_empleados.addEventListener('click',eliminarContacto)
+        
 }
 // leer form
 function leerFormulario(e){
@@ -96,7 +93,7 @@ function leerFormulario(e){
                 <td>${respuesta.datos.cargo}</td>
                 <td>${respuesta.datos.nombre}</td>
                 <td>${respuesta.datos.cedula}</td>
-                <td>${respuesta.datos.celular}</td>
+                <td>${respuesta.datos.telefono}</td>
                 <td>${respuesta.datos.direccion}</td>
              `;
 
@@ -187,10 +184,13 @@ function actualizarRegistro(datosU){
 
     const xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'includes/modelos/modelo-empleados.php', true);
+    xhr.open('POST', 'includes/modelos/mod-editarEmpleado.php', true);
 
     xhr.onload = function(){
         if(this.status == 200){
+
+            console.log(xhr.responseText);
+            
             const respuesta = JSON.parse(xhr.responseText);
          
             console.log(respuesta);

@@ -11,6 +11,7 @@ include_once 'includes/funciones/consultas.php';
         /* var_dump($id); */
         $resultado = obtenerEmpleado($id);
         $contacto = $resultado->fetch_assoc();
+        
 
 ?>
 
@@ -57,20 +58,15 @@ include_once 'includes/funciones/consultas.php';
                               <input type="text" name="direccion" id="direccionEmpleado" class="form-control"
                               value="<?php echo $contacto['Direccion'] ?>" >
                             </div>
-  
-  
+
+                            <div class="col">
+                              <label for="contraseña">Nueva Contraseña</label>
+                              <input type="password" name="contraseña" id="passEmpleado" class="form-control"  >
+                             </div> 
+                              <input type="hidden" value="<?php echo $id ?>" id="id_empleado">
                             <div class="col Enviar">
-                            <?php $textoBtn = ($contacto['Direccion']) ? 'Guardar' : 'Añadir'; 
-                            
-                                    $Accion2 = ($contacto['Direccion']) ? 'editar' : 'Crear';
-                            ?>
-                            <input type="hidden" id="Accion2" value="<?php echo $Accion2; ?>">
-                             <?php if(isset($contacto['id_empleado'])) { ?>
-
-                            <input type="hidden" id="id_empleado" value="<?php echo $contacto['id_empleado']; ?>">
-
-                          <?php  }  ?> 
-                              <input type="submit" value="<?php echo $textoBtn;?>"  class="btn btn-primary mb-2">
+                              <input type="hidden" id="Accion2" value="editar">
+                              <button type="submit"  class="btn btn-primary mb-2">Editar</button>
                             </div>
 
                       </div>

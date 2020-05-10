@@ -1,12 +1,12 @@
 const Formularioproveedor = document.querySelector('#Fproveedor'),
-Lista_Provedores = document.querySelector('#Lista_Provedores')
+Lista_Provedores = document.querySelector('#Lista_Provedores tbody')
 
 eventListeresP();
 
 function eventListeresP(){
 
     Formularioproveedor.addEventListener('submit',leerFormularioP);
-
+    Lista_Provedores.addEventListener('click',eliminarProveedor);
 }
 
 function leerFormularioP(e){
@@ -39,6 +39,12 @@ function leerFormularioP(e){
 
         if(accion == 'crear'){
             insertarBD(infoProvedor)
+        }else{
+            const ProvEdit = document.querySelector('#ProvEdit').value;
+            /* const btnedit = document.querySelector('#AccionPU').value; */
+            infoProvedor.append('cedula',ProvEdit);
+            /* nfoProvedor.append('AccionPU',btnedit) */
+            actualizarProvedor(infoProvedor);
         }
     }
 
@@ -53,12 +59,14 @@ function  insertarBD(datosP){
 
     xhr.onload = function(){
         if(this.status === 200){
+            console.log(xhr.responseText);
+            
             const respuesta = JSON.parse(xhr.responseText);
             console.log(respuesta);
             if(respuesta.respuesta == 'correcto'){
                 Swal({
                     title: 'Exito',
-                    text: `El proveedor ${respuesta.nombre} a sido ingresado`,
+                    text: `El proveedor a sido ingresado`,
                     type: 'success'
 
                 });
@@ -80,6 +88,42 @@ function  insertarBD(datosP){
 
 }
 
+function actualizarProvedor(datosUP){
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('POST','includes/modelos/mod-editarProveedor.php', true);
+
+    xhr.onload = function(){
+        if(this.status == 200){
+            /* console.log(xhr.responseText); */
+            
+            const respuesta = JSON.parse(xhr.responseText);
+            console.log(respuesta);
+            if(respuesta.respuesta == 'correcto' ){
+                Swal({
+                    title: 'Exito',
+                    text: `El proveedor ${respuesta.nombre} a sido actualizado`,
+                    type: 'success'
+
+                });
+                /* setTimeout(() => {
+                    window.location.href = 'Admin.php';
+                }, 1000); */
+            }else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'Debe de hacer una edicion',
+                  })
+           }
+        }
+    }
+    xhr.send(datosUP);
+}
+
+
+
 function MostrarProvedorCreado(respuesta){
     /* console.log("Quiero café"); */
 
@@ -98,7 +142,7 @@ function MostrarProvedorCreado(respuesta){
                //crea el enlace para editar
                const btnEditar = document.createElement('a');
                btnEditar.appendChild(iconoEditar)
-               btnEditar.href= `editarP.php?id=${respuesta.id_insertado}`;
+               btnEditar.href= `updProveedor.php?id=${respuesta.id_insertado}`;
                btnEditar.classList.add('btn', 'btn_editar');
 
                //agregar al padre
@@ -121,4 +165,44 @@ function MostrarProvedorCreado(respuesta){
 
             //agregarlo con los contactos o sea la tabla
             Lista_Provedores.appendChild(nuevoProveedor);
+}
+
+function eliminarProveedor(e){
+        if(e.target.parentElement.classList.contains('btn-borrar')){
+            const id = e.target.parentElement.getAttribute('data-id');
+            console.log(id);
+            
+
+            const respuesta = confirm('¿Estas Seguro?')
+
+            if(respuesta){
+                const xhr = new XMLHttpRequest();
+                
+                 xhr.open('GET',`includes/modelos/modelo-provedor.php?id=${id}&accion=borrar`, true );
+                 xhr.onload = function(){
+                    if(this.status === 200){
+                          console.log(xhr.responseText);
+                                              
+                        const resultado = JSON.parse(xhr.responseText);
+                        console.log(resultado.resultado);
+                        if(resultado.resultado == 'correcto'){
+                            Swal({
+                                title: 'Exito',
+                                text: `El proveedor  a sido eliminado`,
+                                type: 'success'
+            
+                            });
+                            e.target.parentElement.parentElement.parentElement.remove();
+                            
+                            
+                        }
+                        
+                    }
+                 }
+                 
+                 xhr.send();
+            }
+            
+        }
+        
 }

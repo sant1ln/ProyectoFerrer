@@ -8,7 +8,7 @@
     
     <div class="contenedor contenedorA">
         <div class="contenedorInventario">
-            <div class="inventarioMORE" id="inventarioMORE"><!-- VER INVENTARIO -->
+            <div class="inventarioMORE" id="inventarioMORE"><!-- VER inventario -->
                 <div class="TengoEstilos">
                 <img src="./img/logo.png" alt="Logo">
                 <h3>Ver inventario</h3>
@@ -59,7 +59,7 @@
             </div>
           </div>
 
-            <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR A INVENTARIO -->
+            <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR inventario -->
                 <div class="TengoEstilos">
                   <img src="./img/logo.png" alt="Logo">
                   <h3>Añadir Inventario</h3>
@@ -279,10 +279,10 @@
                       </div>
                     </form>
 
-                    <!-- Ver empelados -->
+                    <!-- Ver Proveedores -->
                     <table class="table table-striped" id="Lista_Provedores">
                     <thead>
-                    <tr>
+                      <tr>
                       <!-- <th scope="col">Codigo</th> -->
                       <th scope="col">Cedula provedor</th>
                       <th scope="col">Nombre provedor</th>
@@ -291,29 +291,29 @@
                       
                       <th scope="col">Acciones</th>
                       
-                    </tr>
+                      </tr>
                     </thead>
                     <tbody>
-                    <?php /*   $empleados = obtenerEmpleados();
+                    <?php   $proveedores = obtenerProveedores();
                     
-                   if($empleados->num_rows){
+                   if($proveedores->num_rows){
                       
-                      foreach($empleados as $empelado){  ?>
+                      foreach($proveedores as $proveedor){  ?>
                       <tr>
                       
                         
-                        <td><?php echo $empelado['Cargo']; ?></td>
-                        <td><?php echo $empelado["Nombre"]; ?></td>
-                        <td><?php echo $empelado["Cedula"]; ?></td>
-                        <td><?php echo $empelado["Celular"]; ?></td>
-                        <td><?php echo $empelado["Direccion"]; ?></td>
-                        <td>
-                            <a class="btn" href="updEmpleado.php?id=<?php echo $empelado["id_empleado"] ?> "><i class="fas fa-pen-square  btn-editar"></i></a>
-                            <button type="button" data-id="<?php echo $empelado["id_empleado"] ?>" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
+                      <td><?php echo $proveedor["Cedula_Proveedor"]; ?></td>
+                      <td><?php echo $proveedor["Nombre_proveedor"]; ?></td>
+                      <td><?php echo $proveedor["Telefono_proveedor"]; ?></td>
+                      <td><?php echo $proveedor["Ciudad_proveedor"]; ?></td>
+                        
+                        <td>                
+                            <a class="btn" href="updProveedor.php?id=<?php echo $proveedor["Cedula_Proveedor"] ?> "><i class="fas fa-pen-square  btn-editar"></i></a>
+                            <button type="button" data-id="<?php echo $proveedor["Cedula_Proveedor"] ?>" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
                         </td>
                       </tr>
                     <?php  }
-                    }  */?>
+                    } ?>
                     </tbody>
                     </table>
 

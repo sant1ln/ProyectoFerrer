@@ -68,10 +68,33 @@ function obtenerEmpleado($id){
     include 'bd_conexion.php';
 
     try{
-        return $conn->query("SELECT id_empleado, Cargo, Nombre, Cedula, Celular, Direccion FROM empleado WHERE id_empleado = $id");
-
+        return $conn->query("SELECT id_empleado, Cargo, Nombre, Cedula, Celular, Direccion, passwd  FROM empleado WHERE id_empleado = $id");
+        
     }catch (Exception $e){
         echo "Error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+}
+
+function obtenerProveedores(){
+    include 'bd_conexion.php';
+
+    try{
+        return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor FROM proveedor");
+    }catch (Exception $e){
+        echo "Error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+
+}
+
+function obtenerProveedor($id){
+    include 'bd_conexion.php';
+
+    try{
+        return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor FROM proveedor WHERE cedula_Proveedor = $id");
+    }catch(Exception $e){
+        echo "error!!". $e->getMessage() ."<br>";
         return false;
     }
 }
