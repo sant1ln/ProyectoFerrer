@@ -40,7 +40,7 @@ function leerFormularioP(e){
         /* console.log(...infoProvedor); */
 
         if(accion == 'crear'){
-            insertarBD(infoProvedor)
+            insertarBDP(infoProvedor)
         }else{
             const ProvEdit = document.querySelector('#ProvEdit').value;
             /* const btnedit = document.querySelector('#AccionPU').value; */
@@ -52,7 +52,7 @@ function leerFormularioP(e){
 
 }
 
-function  insertarBD(datosP){
+function  insertarBDP(datosP){
 
     var xhr = new XMLHttpRequest();
 

@@ -125,12 +125,8 @@ function leerFormularioProducto(e){
           Accion=document.querySelector('#Accion').value;
     
     if(Codigo === '' || Nombre === '' || Tipo === "" || Precio === ''){
-        Swal.fire({
-            type: 'error',
-            title: 'Error',
-            text: 'Ambos campos son obligatorios',
-          })
         
+    
     }else{
         //pasa la validacion crear llamado a ajax
         const infoProducto = new FormData(); //mejor forma para leer datos de formulario a traves de ajax

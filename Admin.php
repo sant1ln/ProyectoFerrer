@@ -62,7 +62,7 @@
             <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR inventario -->
                 <div class="TengoEstilos">
                   <img src="./img/logo.png" alt="Logo">
-                  <h3>Añadir Inventario</h3>
+                  <h3>Añadir Producto</h3>
                   <i class="fas fa-sign-out-alt Singout" id="CerrarAnadir"></i>
                 </div>
                 <div class="container">
