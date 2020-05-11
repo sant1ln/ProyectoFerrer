@@ -59,10 +59,11 @@ include_once 'includes/funciones/consultas.php';
                             <div class="col">
                               <label for="contraseña">Nueva Contraseña</label>
                               <input type="password" name="contraseña" id="passEmpleado" class="form-control" 
-                              value="<?php echo $contacto['passwd'] ?>" >
+                              placeholder="Debes de ingresar una contraseña" >
                              </div> 
 
                               <input type="hidden" value="<?php echo $id ?>" id="id_empleado">
+                              
 
                             <div class="col Enviar">
                               <input type="hidden" id="Accion2" value="editar">

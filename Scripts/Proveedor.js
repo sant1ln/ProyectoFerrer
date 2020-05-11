@@ -18,6 +18,7 @@ function leerFormularioP(e){
     const nombreProv = document.querySelector('#nombreProveedor').value;
     const telefonoProv = document.querySelector('#CelularProveedor').value;
     const dirProv = document.querySelector('#direccionProveedor').value;
+    const creador = document.querySelector('#creador_P').value;
     const accion = document.querySelector('#AccionP').value;
 
     if(cedulaProv == '' || nombreProv == '' || telefonoProv == '' || dirProv == ''){
@@ -32,6 +33,7 @@ function leerFormularioP(e){
         infoProvedor.append('nombreP', nombreProv);
         infoProvedor.append('telefonoP',telefonoProv);
         infoProvedor.append('direccionP',dirProv);
+        infoProvedor.append('creador',creador);
         infoProvedor.append('accion',accion);
 
 
@@ -134,6 +136,7 @@ function MostrarProvedorCreado(respuesta){
     <td>${respuesta.nombre}</td>
     <td>${respuesta.telefono}</td>
     <td>${respuesta.direccion}</td>
+    <td>${respuesta.creador}</td>
      `;
      const contenedorAcciones = document.createElement('td');
      const iconoEditar = document.createElement('i');
@@ -142,7 +145,7 @@ function MostrarProvedorCreado(respuesta){
                //crea el enlace para editar
                const btnEditar = document.createElement('a');
                btnEditar.appendChild(iconoEditar)
-               btnEditar.href= `updProveedor.php?id=${respuesta.id_insertado}`;
+               btnEditar.href= `updProveedor.php?id=${respuesta.cedula}`;
                btnEditar.classList.add('btn', 'btn_editar');
 
                //agregar al padre
@@ -155,7 +158,7 @@ function MostrarProvedorCreado(respuesta){
             //crear el boton para eliminar
             const btnEliminar = document.createElement('button');
                   btnEliminar.appendChild(iconoEliminar);
-                  btnEliminar.setAttribute('data-id',respuesta.id_insertado);
+                  btnEliminar.setAttribute('data-id',respuesta.cedula);
                   btnEliminar.classList.add('btn','btn-borrar');
 
             //agregarndo el boton eliminar al padre

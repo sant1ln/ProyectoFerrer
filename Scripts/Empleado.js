@@ -93,7 +93,7 @@ function leerFormulario(e){
                 <td>${respuesta.datos.cargo}</td>
                 <td>${respuesta.datos.nombre}</td>
                 <td>${respuesta.datos.cedula}</td>
-                <td>${respuesta.datos.telefono}</td>
+                <td>${respuesta.datos.celular}</td>
                 <td>${respuesta.datos.direccion}</td>
              `;
 
@@ -108,7 +108,7 @@ function leerFormulario(e){
             const enlaceEdit = document.createElement('a');
             enlaceEdit.classList.add('btn');
             enlaceEdit.appendChild(BtnEditar);
-            enlaceEdit.href = `editar.php?=${respuesta.datos.id_insertado}`;
+            enlaceEdit.href = `updEmpleado.php?id=${respuesta.datos.id_insertado}`;
 
             // agregarlo al padre
             contenedorAcciones.appendChild(enlaceEdit);

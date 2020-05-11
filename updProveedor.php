@@ -12,6 +12,7 @@ $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
     
 ?>
 
+
 <div class="inventarioMORE UPDATE" id="EmpladoMORE"><!-- AÑADIR Provedores-->
               <div class="TengoEstilos">
                  <img src="./img/logo.png" alt="Logo">
@@ -48,7 +49,7 @@ $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
                         <input type="hidden" placeholder="Responsable" id="Nombre_u" name="Precio" class="form-control" value=" <?php echo($_SESSION['nombre']); ?>" >
                           <input type="hidden" id="ProvEdit" value="<?php echo ($proveedor['Cedula_Proveedor']); ?>" >
-                        
+                          <input type="hidden" id="creador_P" value="<?php echo($_SESSION['nombre']); ?>">
                         <div class="col Enviar">
                           <input type="hidden" id="AccionP" value="editar">
                           <button type="submit"  class="btn btn-primary mb-2">Editar</button>

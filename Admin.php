@@ -271,6 +271,8 @@
                           <input type="text" name="direccion" id="direccionProveedor" class="form-control" >
                         </div>
 
+                        <input type="hidden" id="creador_P" value="<?php echo($_SESSION['nombre']); ?>">
+
                         <div class="col Enviar">
                           <input type="hidden" id="AccionP" value="crear">
                           <button type="submit" class="btn btn-primary mb-2">Añadir</button>
@@ -288,7 +290,7 @@
                       <th scope="col">Nombre provedor</th>
                       <th scope="col">Telefono provedor</th>
                       <th scope="col">Direccion provedor</th>
-                      
+                      <th scope="col">Resposable</th>
                       <th scope="col">Acciones</th>
                       
                       </tr>
@@ -306,7 +308,7 @@
                       <td><?php echo $proveedor["Nombre_proveedor"]; ?></td>
                       <td><?php echo $proveedor["Telefono_proveedor"]; ?></td>
                       <td><?php echo $proveedor["Ciudad_proveedor"]; ?></td>
-                        
+                      <td><?php echo $proveedor["creador"]; ?></td>
                         <td>                
                             <a class="btn" href="updProveedor.php?id=<?php echo $proveedor["Cedula_Proveedor"] ?> "><i class="fas fa-pen-square  btn-editar"></i></a>
                             <button type="button" data-id="<?php echo $proveedor["Cedula_Proveedor"] ?>" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>

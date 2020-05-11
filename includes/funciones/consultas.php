@@ -80,7 +80,7 @@ function obtenerProveedores(){
     include 'bd_conexion.php';
 
     try{
-        return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor FROM proveedor");
+        return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor, creador FROM proveedor");
     }catch (Exception $e){
         echo "Error!!". $e->getMessage() ."<br>";
         return false;
