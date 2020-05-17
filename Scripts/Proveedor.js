@@ -4,7 +4,7 @@ Lista_Provedores = document.querySelector('#Lista_Provedores tbody')
 eventListeresP();
 
 function eventListeresP(){
-
+    prueba();
     Formularioproveedor.addEventListener('submit',leerFormularioP);
     Lista_Provedores.addEventListener('click',eliminarProveedor);
 }
@@ -209,3 +209,5 @@ function eliminarProveedor(e){
         }
         
 }
+
+

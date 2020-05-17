@@ -78,3 +78,17 @@ function CerrarEntrada(){
     admins.style.display = 'flex';
 }
 
+/* Abrir/Cerrar Reporte */
+
+const ReportCreate = document.querySelector('#ReportCreate'),
+      CerrarReporte = document.querySelector('#CerrarReporte').addEventListener('click',CerrarRep),
+      Reporte = document.querySelector('#Reporte').addEventListener('click',AbrirReporte);
+
+function AbrirReporte(){
+    ReportCreate.classList.toggle('Reporte');
+    admins.style.display = 'none';
+}
+function CerrarRep(){
+    ReportCreate.classList.toggle('Reporte');
+    admins.style.display = 'flex';
+}

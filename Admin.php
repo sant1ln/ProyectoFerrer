@@ -6,15 +6,47 @@
  
 ?>
     
-    <div class="contenedor contenedorA">
-        <div class="contenedorInventario">
-            <div class="inventarioMORE" id="inventarioMORE"><!-- VER inventario -->
-                <div class="TengoEstilos">
-                <img src="./img/logo.png" alt="Logo">
-                <h3>Ver inventario</h3>
-                <i class="fas fa-sign-out-alt Singout" id="CerrarInventario"></i>
-                </div>
-              <table id="listado-entrada" class="table table-striped" >
+  <div class="contenedor contenedorA">
+    <div class="contenedorInventario">
+
+      <div id="ReportCreate" class="inventarioMORE ReporteDown">  <!-- Reporte -->
+          <div class="TengoEstilos">
+            <img src="./img/logo.png" alt="Logo">
+            <h3>Reporte</h3>
+            <i class="fas fa-sign-out-alt Singout" id="CerrarReporte"></i>
+          </div>
+          <div class="contador-rango">
+            <h4 class="Rango">Del <span class="fechas" id="FechaI"></span> Al <span  class="fechas" id="FechaF"></span></h4> 
+          </div>
+          <table class="table table-striped">
+            <thead>
+              
+                  <th scope="col">Dia</th>
+                 <th scope="col">Producto</th>
+                 <th scope="col">Cantidad</th>
+                 <th scope="col">Valor</th>
+                 <th scope="col">Vendedor</th>
+              
+            </thead>
+            <tbody>
+               <tr>
+                <td>25/02/2020</td>
+                <td>Dog Show</td>
+                <td>5</td>
+                <td>25000</td>
+                <td><?php echo($_SESSION['nombre']); ?></td>
+               </tr> 
+            </tbody>
+          </table>
+      </div>
+
+      <div class="inventarioMORE" id="inventarioMORE"><!-- VER inventario -->
+          <div class="TengoEstilos">
+            <img src="./img/logo.png" alt="Logo">
+            <h3>Ver inventario</h3>
+            <i class="fas fa-sign-out-alt Singout" id="CerrarInventario"></i>
+          </div>
+        <table id="listado-entrada" class="table table-striped" >
                 <thead>
                   <tr>
                     <th scope="col">Codigo</th>
@@ -55,11 +87,10 @@
                 } ?>
                    
                   </tbody>
-             </table>
-            </div>
-          </div>
-
-            <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR inventario -->
+       </table>
+      </div>
+                
+      <div class="inventarioMORE" id="inventarioADD"><!-- AÑADIR inventario -->
                 <div class="TengoEstilos">
                   <img src="./img/logo.png" alt="Logo">
                   <h3>Añadir Producto</h3>
@@ -144,9 +175,9 @@
                   
                   </form>
                 </div>
-            </div>
+      </div>
 
-            <div class="inventarioMORE" id="EmpleadoADD"><!-- AÑADIR  Empleado -->
+      <div class="inventarioMORE" id="EmpleadoADD"><!-- AÑADIR  Empleado -->
                   <div class="TengoEstilos">
                      <img src="./img/logo.png" alt="Logo">
                       <h3>Empleados</h3>
@@ -237,9 +268,9 @@
                     </table>
 
                   </div>
-            </div>
+      </div>
 
-            <div class="inventarioMORE" id="EmpladoMORE"><!-- AÑADIR Provedores-->
+      <div class="inventarioMORE" id="EmpladoMORE"><!-- AÑADIR Provedores-->
               <div class="TengoEstilos">
                  <img src="./img/logo.png" alt="Logo">
                  <h3>Proveedores</h3>
@@ -321,9 +352,9 @@
 
                   </div>   
              
-            </div>
+      </div>
 
-            <div class="inventarioMORE" id="EntradaADD"><!-- AÑADIR  entrada -->
+      <div class="inventarioMORE" id="EntradaADD"><!-- AÑADIR  entrada -->
                   <div class="TengoEstilos">
                     <img src="./img/logo.png" alt="Logo">
                     <h3>Añadir entrada</h3>
@@ -361,21 +392,22 @@
                       </div>
                     </form>
                   </div>
-            </div>
+      </div>
             
 
-            <div id="admins">
+      <div id="admins">
               <div class="seccionR"> <!-- Reporte por día -->
                 <div>
                 <h2>Reporte de ventas</h2>
                 </div>
                 <div class="reporte">
-                    <form action="">
+                    <form action="" id="Form_Report">
                         <label for="">Ingrese Fecha inicial</label>
-                        <input class="reportexDia" type="date" name="" id="">
+                        <input class="reportexDia" type="date" name="" id="FechaIncio">
                         <label for="">Ingrese Fecha Final</label>
-                        <input class="reportexDia" type="date" name="" id="">
-                        <input class="Btn-generar" type="submit" value="Generar">
+                        <input class="reportexDia" type="date" name="" id="FechaFin">
+                        
+                        <button class="Btn-generar" type="submit" id="Reporte" >Generar</button>
                     </form>
                 </div>
               </div>
@@ -400,7 +432,7 @@
                     </ul> -->
                 </div>
               </div>
-              <div class="seccionR"><!-- Empleado -->
+              <div class="seccionR"><!-- Empleado y Proveedor -->
                 <div>
                     <h3>Empleados y Proveedores</h3>
                 </div>
@@ -408,8 +440,8 @@
                     <input type="button" id="botonAnadirE" class="boton btn-aceptar ADD" value="Añadir Empleado">
                     <input type="button" id="botonVerE" class="boton btn-aceptar " value="Añadir Provedores">
                 </div>
-            </div>
+      </div>
            </div>
-        </div>
     </div>
+  </div>
     <?php include_once 'includes/templates/footer.php'; ?>

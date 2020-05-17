@@ -1,3 +1,5 @@
+
+
 const Formularioempleado = document.querySelector('#Fempleado'),
       Lista_empleados = document.querySelector('#Lista_empleados tbody');
 

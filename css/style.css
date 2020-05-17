@@ -419,3 +419,26 @@ table{
 .UPDATE{
     display: flex;
 }
+
+.contador-rango{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contador-rango p{
+    margin: 0;
+}
+
+.ReporteDown{
+    display: none;
+}
+
+.Reporte{
+    display: block;
+}
+
+.fechas{
+    color:  #a2ca9c;
+}
