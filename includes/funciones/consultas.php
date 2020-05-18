@@ -13,7 +13,6 @@ function obtenerProductos(){
     }
 }
 
-
 function obtenerInventario(){
 
     include 'bd_conexion.php'; //abrir la conexion
@@ -33,7 +32,6 @@ function obtenerInventario(){
    
 
 }
-
 
 //obtiene un producto toma el codigo
 
@@ -62,7 +60,6 @@ function obtenerEmpleados(){
         return false;
     }
 }
-
 
 function obtenerEmpleado($id){
     include 'bd_conexion.php';
@@ -95,6 +92,46 @@ function obtenerProveedor($id){
         return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor FROM proveedor WHERE cedula_Proveedor = $id");
     }catch(Exception $e){
         echo "error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+}
+
+function obtenerAbonos(){
+    include 'bd_conexion.php';
+    try{
+        return $conn->query("SELECT Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta, Nombre_Usuario FROM producto WHERE Id_Tipo_Producto = 'Abonos'");
+    }catch (Exception $e){
+        echo "Error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+}
+
+function obtenerSemillas(){
+    include 'bd_conexion.php';
+    try{
+        return $conn->query("SELECT Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta, Nombre_Usuario FROM producto WHERE Id_Tipo_Producto = 'Semillas'");
+    }catch (Exception $e){
+        echo "Error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+}
+
+function obtenerCuidos(){
+    include 'bd_conexion.php';
+    try{
+        return $conn->query("SELECT Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta, Nombre_Usuario FROM producto WHERE Id_Tipo_Producto = 'Cuidos'");
+    }catch (Exception $e){
+        echo "Error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+}
+
+function obtenerInsecticida(){
+    include 'bd_conexion.php';
+    try{
+        return $conn->query("SELECT Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta, Nombre_Usuario FROM producto WHERE Id_Tipo_Producto = 'Insecticida'");
+    }catch (Exception $e){
+        echo "Error!!". $e->getMessage() ."<br>";
         return false;
     }
 }

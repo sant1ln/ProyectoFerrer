@@ -213,7 +213,7 @@ li a:hover{
 /* === Registros === */
 
 .AreaRegistro3{
-    
+    overflow: scroll;
     width: 30vw;
     height: 60vh;
     margin: 0;
@@ -222,6 +222,14 @@ li a:hover{
     justify-content: center;
     align-items: center;
     display: none;
+}
+
+.AreaRegistro3::-webkit-scrollbar{
+    width: 7px;
+}
+
+.AreaRegistro3::-webkit-scrollbar-thumb{
+    background-color: #35682d;
 }
 
 .AreaRegistro3 i{
@@ -345,7 +353,7 @@ h3{
 
 
 .inventarioMORE{
-   
+   overflow: scroll;
     background-color:rgb(237, 238, 235);
     width: 80vw;
     height: auto;
@@ -359,6 +367,13 @@ h3{
     overflow: hidden;
 }
 
+.inventarioMORE::-webkit-scrollbar{
+    width: 7px;
+}
+
+.inventarioMORE::-webkit-scrollbar-thumb{
+    background-color: #35682d;
+}
 
 .inventarioMORE img{
     width: 80px;

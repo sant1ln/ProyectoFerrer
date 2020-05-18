@@ -2,7 +2,7 @@
 
       include 'includes/funciones/sessiones.php';
       include_once 'includes/templates/header-venta.php';
-
+      include 'includes/funciones/consultas.php';
       
     ?>
 
@@ -22,25 +22,21 @@
                         
                       </tr>
                     </thead>
-                    <tr class="Seleccion">
-                        <th scope="row">AB1</th>
-                        <td>AbonoNatural</td>
-                        <td><input class="Cant" id="cantan" type="number"></td>
-                        <td id="valoran">21500</td>
-                      </tr>
-                      <tr class="Seleccion">
-                        <th scope="row">AB2</th>
-                        <td>Yerbas</td>
-                        <td><input class="Cant" id="canty" type="number"></td>
-                        <td id="valory">15000</td>
-                      </tr>
-                      <tr class="Seleccion">
-                        <th scope="row">AB3</th>
-                        <td>Inecticida</td>
-                        <td><input class="Cant" id="canti" type="number"></td>
-                        <td id="valori">5000</td>
-                      </tr>
-                    </tbody>
+                    <tbody>
+                    <?php $abonos = obtenerCuidos();
+                    /* $ProductoA = $abonos["Id_Tipo_Producto"]; */
+                      if($abonos -> num_rows){
+                          foreach ($abonos as $abono) { ?>
+                            <tr class="Seleccion">
+                              <td scope="row"><?php echo $abono["Id_Producto"] ?></th>
+                              <td><?php echo $abono["Nombre_Producto"] ?></td>
+                              <td><input class="Cant" id="cantan" type="number"></td>
+                              <td id="valoran"><?php echo $abono["Precio_Venta"] ?></td>
+                            </tr>
+                     <?php  }                        
+                      }?> 
+                      
+                   </tbody>
             </table>
             </div>
 
