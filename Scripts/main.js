@@ -4,19 +4,14 @@ let RegistroProducto = document.getElementById('RegistroProducto');
 let Articulo = document.getElementsByClassName('Articulo')
 let AreaRegistro = document.getElementById('AreaRegistro')
 let cerrarVentana = document.getElementById('cerrarVentana');
-let valoran = document.getElementById('valoran');
-let valory = document.getElementsByClassName('valory');
-let valori = document.getElementsByClassName('valori');
-let cantidadan = document.getElementById('cantan');
-let cantidady = document.getElementById('canty');
-let cantidadi = document.getElementById('canti');
-let registrar = document.getElementById('registrar');
-let FacturadoP = document.getElementById('Facturador');
-let TotalP = document.getElementById('total');
+let Registrar = document.getElementById('registrar');
+
+
 
 RegistroProducto.addEventListener('click', AbrirVentana);
 cerrarVentana.addEventListener('click',cerrar)
-registrar.addEventListener('click',registrarproductos);
+Registrar.addEventListener('click',RegistrarProducto);
+
 
 
 for(var i=0;i<Articulo.length;i++){
@@ -27,40 +22,41 @@ function AbrirVentana(){
     AreaRegistro.style.display = 'block'
 } 
 
-function registrarproductos (){
-
-    let Cantabono = parseInt(cantidadan.value,10)||0,
-    Cantyerbas = parseInt(cantidady.value,10)||0,
-    Cantinserticidas = parseInt(cantidadi.value,10)||0;
-
+function RegistrarProducto(){
+   
+    let Cantidadabonos=document.getElementsByClassName('Cant');
+    let Productosaregistrar = new Array();
     
+  
 
-let totalpagar = Cantabono + Cantyerbas + Cantinserticidas*valori;
-let listadoproductos = [];
+    for (var i =0;i<=Cantidadabonos.length;i++){
+      
+ 
+        Cantidadabonos[i];
+        console.log(Cantidadabonos[i].value);
+        console.log(Productosaregistrar);
 
-if(Cantabono>0){
-    listadoproductos.push(Cantabono+'cantidad abonos');
+        if(Cantidadabonos[i].value.trim() !== ''){
+            console.log('true');
+            Productosaregistrar.push(...Productosaregistrar,Cantidadabonos[i].value);
+
+
+        }else{
+            console.log('false');
+            alert('datos vacios');
+
+        }
+
+        
+       
+
+
+    }
+    
+   
 }
 
-if(Cantyerbas>0){
-    listadoproductos.push(Cantyerbas+'cantidad yerbas'); 
-}
 
-if(Cantinserticidas>0){
-    listadoproductos.push(Cantinserticidas +'cantidad inserticidas')
-}
-
-FacturadoP.innerHTML=" ";
-
-for(let i=0;i<listadoproductos.length;i++){
-    FacturadoP.innerHTML+= listadoproductos[i]+ '<br/>';
-}
-
-TotalP.innerHTML= "Total:  $ "+ totalpagar;
-
-
-
-}
 
 function cerrar(){
    /*  console.log('Funciono') */

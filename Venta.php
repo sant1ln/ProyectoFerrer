@@ -30,7 +30,7 @@
                             <tr class="Seleccion">
                               <td scope="row"><?php echo $abono["Id_Producto"] ?></th>
                               <td><?php echo $abono["Nombre_Producto"] ?></td>
-                              <td><input class="Cant" id="cantan" type="number"></td>
+                              <td><input class="Cant" id="Cantidad-abonos" type="number"></td>
                               <td id="valoran"><?php echo $abono["Precio_Venta"] ?></td>
                             </tr>
                      <?php  }                        
