@@ -235,13 +235,15 @@ $( document ).ready(function() {
             
             var action = 'anularVenta';
 
+
             $.ajax({
                 url: 'includes/modelos/modelo-clientes.php',
                 type: "POST",
                 async: true,
                 data: {action:action},
 
-               success: function(response){                    
+               success: function(response){ 
+                   console.log(response)                   
                     if(response != 'error'){
                         location.reload();
                     }
