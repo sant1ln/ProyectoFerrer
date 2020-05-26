@@ -17,9 +17,6 @@
         $_SESSION = array(
         );
     }
-
-    
-
 ?>
 
 <body>

@@ -162,7 +162,7 @@
                                     <td><?php echo $Producto['Nombre_Usuario']; ?></td>
 
                                     <td>
-                                        <a class="btn-editar btn" href="editar.php?id=<?php echo $Producto['Id_Producto']; ?>"><i class="fas fa-pen-square btn-editar"></i></a>
+                                        <a class="btn-swe3btn" href="editar.php?id=<?php echo $Producto['Id_Producto']; ?>"><i class="fas fa-pen-square btn-editar"></i></a>
                                         <button data-id=<?php echo $Producto['Id_Producto']; ?> type="button" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
                                     </td>
                                 </tr>

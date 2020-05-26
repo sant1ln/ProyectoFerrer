@@ -4,456 +4,614 @@
 
 
 
-*{
-    margin:0;
-}
-
-.nav-null{
-    display: none;
-}
-
-body{
-    margin: 0;
-    width: 100vw;
-    font-family: 'Lato',Arial, Helvetica, sans-serif ;
-    justify-content: center;
-}
-
-/* Reutilizables */
-
-.contenedor{
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    *{
+        margin:0;
+    }
     
-}
-
-.boton{
-    width: 150px;
-    height: 40px;
-    border: none;
-   
-    margin: 10px;
-    font-size: 20px;
-    color: #fff;
-    cursor: pointer;
-    text-align: center;
-}
-
-.btn-aceptar{
-    background-color: #009245;
-}
-
-.ADD{
-    font-size: 18px;
-}
-
-/* Login */
-
-
-.login{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-image: url('../img/Login.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-origin: content-box;
-}
-
-.login img{
-    width: 250px;
-    align-self: center;
-}
-.login form{
-    font-size: 20px;
-    color: #fff
-}
-.Login-input{
-    font-size: 25px;
-    border: none;
-    width: 300px;
-    height: 30px;
-    margin: 10px;
-}
-
-/* Navegador */
-
-.TengoEstilos{
-    background:  #35682d;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    .nav-null{
+        display: none;
+    }
     
-}
-
-
-.TengoEstilos img{
-    width: 120px;
-    height: 100px;
-    margin: 0 50px;
-}
-
-ul{
-    display: flex;
+    body{
+        margin: 0;
+        width: 100vw;
+        font-family: 'Lato',Arial, Helvetica, sans-serif ;
+        justify-content: center;
+    }
     
-}
-
-li{
-    list-style: none;
-    margin-left: 50px;
-}
-
-li a{
-    font-size: 30px;
-    text-decoration: none;
-    color: #fff
-}
-
-li a:hover{
-    color: #a2ca9c;
-    text-decoration: none;
-}
-
-
-.Singout{
-    color: #fff;
-    margin-left: 300px;
-    font-size: 30px;
+    /* Reutilizables */
     
-}
-
-
-/* Facturador */
-
-.Registradora{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #E9D54D;
-    padding: 10PX;
-    width: 65vw;
-}
-
-
-.AreaRegistro{
-    width: 35vw;
-    height: 60vh;
-    background-color: #E9F6BE;
-}
-
-.Facturador-contenedor{
-    width: 15vw;
-    height: 35vh;
-    margin: 15px;
-    background-color: #E9F6BE;
-}
-
-.Vendedor{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#facturador{
-    padding: 1em;
-}
-
-#total{
-    padding: 1em;
-    margin-top: 7em;
-}
-
-.Lista-Articulos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.Lista-Articulos li{
-    background-color: #E9D54D;
-    width: 25%;
-    height: 80px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
- 
-}
-
-.Lista-Articulos li:hover{
-    background-color: rgb(245, 230, 130);
-    transition: all .3s;
-}
-
-
-
-.centrador{
-    width: 35vw;
-    height: 60vh;
-    background-color: #E9F6BE;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-/* === Registros === */
-
-.AreaRegistro3{
-    overflow: scroll;
-    width: 30vw;
-    height: 60vh;
-    margin: 0;
-    background-color:  #E9F6BE;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-
-.AreaRegistro3::-webkit-scrollbar{
-    width: 7px;
-}
-
-.AreaRegistro3::-webkit-scrollbar-thumb{
-    background-color: #35682d;
-}
-
-.AreaRegistro3 i{
-    font-size: 35px;
-    margin: 0;
-    position: relative;
-    top: 15px;
-    right: 5px;
-    color: #35682d;
-}
-
-.Cant{
-    width: 30px;
-}
-
-.Seleccion:hover{
-    background-color: rgb(240, 241, 237);
-}
-
-/*  Pagina Administración */
-
-#admins{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
+    .contenedor{
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    .boton{
+        width: 150px;
+        height: 40px;
+        border: none;
+       
+        margin: 10px;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+    }
+    
+    .btn-aceptar{
+        background-color: #009245;
+    }
+    
+    .ADD{
+        font-size: 18px;
+    }
+    
+    /* Login */
+    
+    
+    .login{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-image: url('../img/Login.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-origin: content-box;
+    }
+    
+    .login img{
+        width: 250px;
+        align-self: center;
+    }
+    .login form{
+        font-size: 20px;
+        color: #fff
+    }
+    .Login-input{
+        font-size: 25px;
+        border: none;
+        width: 300px;
+        height: 30px;
+        margin: 10px;
+    }
+    
+    /* Navegador */
+    
+    .TengoEstilos{
+        background:  #35682d;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    
+    
+    .TengoEstilos img{
+        width: 120px;
+        height: 100px;
+        margin: 0 50px;
+    }
+    
+    ul{
+        display: flex;
+        
+    }
+    
+    li{
+        list-style: none;
+        margin-left: 50px;
+    }
+    
+    li a{
+        font-size: 30px;
+        text-decoration: none;
+        color: #fff
+    }
+    
+    li a:hover{
+        color: #a2ca9c;
+        text-decoration: none;
+    }
+    
+    
+    .Singout{
+        color: #fff;
+        margin-left: 300px;
+        font-size: 30px;
+        
+    }
+    
+    
+    /* Facturador */
+    
+    .Registradora{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #E9D54D;
+        padding: 10PX;
+        width: 65vw;
+    }
+    
+    
+    .AreaRegistro{
+        width: 35vw;
+        height: 60vh;
+        background-color: #E9F6BE;
+    }
+    
+    .Facturador-contenedor{
+        width: 15vw;
+        height: 35vh;
+        margin: 15px;
+        background-color: #E9F6BE;
+    }
+    
+    .Vendedor{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #facturador{
+        padding: 1em;
+    }
+    
+    #total{
+        padding: 1em;
+        margin-top: 7em;
+    }
+    
+    .Lista-Articulos{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .Lista-Articulos li{
+        background-color: #E9D54D;
+        width: 25%;
+        height: 80px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+     
+    }
+    
+    .Lista-Articulos li:hover{
+        background-color: rgb(245, 230, 130);
+        transition: all .3s;
+    }
+    
+    
+    
+    .centrador{
+        width: 35vw;
+        height: 60vh;
+        background-color: #E9F6BE;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    /* === Registros === */
+    
+    .AreaRegistro3{
+        
+        width: 30vw;
+        height: 60vh;
+        margin: 0;
+        background-color:  #E9F6BE;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+    
+    .AreaRegistro3 i{
+        font-size: 35px;
+        margin: 0;
+        position: relative;
+        top: 15px;
+        right: 5px;
+        color: #35682d;
+    }
+    
+    .Cant{
+        width: 30px;
+    }
+    
+    .Seleccion:hover{
+        background-color: rgb(240, 241, 237);
+    }
+    
+    /*  Pagina Administración */
+    
+    #admins{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+          
+    }
+    
+    .seccionR{
+        width: 30%;
+        height: auto;
+        margin: 10px;
+    }
+    
+    .seccionR h2{
+        text-align: center;
+        background-color: #35682d;
+        color: #fff;
+        
+    }
+    
+    .seccionR h3{
+        text-align: center;
+        background-color: #35682d;
+        color: #fff;
+    }
+    
+    
+    .reporte{
+        /* border: 1px solid black; */
+        width: 400px;
+        height: 170px;
+        margin-top: 15px;
+        background-color:#e2e3de;
+        box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
+    }
+    .reporte  ul{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    li{
+        font-size: 20px;
+    }
+    
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    label{
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .reportexDia{
+        width: 70%;
+        height: 30px;
+        border: none;
+    }
+    
+    .Btn-generar{
+        margin: 10px;
+        width: 30%;
+        height: 30px;
+        border: none;
+        background-color: #009245;
+    }
+    
+    .reporte .boton{
+        background-color: #009245;
+        margin: 20px 0;
+        cursor: pointer;
+    }
+    
+    .reporte .boton:hover{
+        background-color: #279259;
+        margin: 20px 0;
+        
+    }
+    
+    
+    h3{
+        color: white;
+        font-weight: 300;
+    }
+    
+    .inventario{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       
+    }
+    
+    
+    .inventarioMORE{
+       
+        background-color:rgb(237, 238, 235);
+        width: 80vw;
+        height: auto;
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        top: 25%;
+        left: 10%;
+        overflow: hidden;
+    }
+    
+    
+    .inventarioMORE img{
+        width: 80px;
+        height: 80px;
+    }
+    
+    table{
+        margin-bottom: 10px;
+    }
+    
+    
+    
+    .Enviar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .Anadir{
+        margin-bottom: 10px; 
+    }
+    
+    /*NOTIFICACIONES AGREGAR*/
+    .Notificacion {
+        position: fixed;
+        bottom: 24rem;
+        left: 30rem;
+        border-radius: 3px;
+        padding: 1rem 3rem;
+        opacity: 0;
+        transition: opacity .5s ease;
+      
+    }
+    .visible {
+        opacity: 1;
+    }
+    /** Colores de la notificacion**/
+    .correcto {
+        background-color: rgb(179,241, 117);
+         color: green;
+    }
+    .error {
+        background-color: rgb(238, 148, 166);
+        color: rgb(163, 0, 33);
+    }
+    
+    .btn-editar{
+        color: rgb(10, 134, 10);
+        font-size: 25px;
+    }
+    
+    .btn-borrar{
+        color: rgb(170, 31, 31);
+        font-size: 25px;
+    }
+    
+    
+    .UPDATE{
+        display: flex;
+    }
+
+    /*ventas*/
+    #container{
+        padding: 90px 15px 15px;
+    }
+
+    .datos form{
+        background: rgb(119, 26, 26);
+        margin: auto;
+        padding: 20px 50px;
+        border: 1px solid #d1d1d1;
+    }
+
+    .datos label{
+        font-size: 12pt;
+        margin: 15px auto 5px auto;
+    }
+
+    .btn_save{
+        font-size: 12pt;
+        background: #35682d;
+        padding: 10px;
+        color: #fff;
+        letter-spacing: 1px;
+        border: 0;
+        cursor: pointer;
+        margin: 5px 320px;   
+    }
+
+    .btn_ok {
+        display: inline-block;
+        background: #35682d;
+        color: #fff;
+        padding: 5px 25px;
+        border-radius: 4px;
+        margin: 20px;
+        display: none;
+
+    }
+
+    .btn_new{
+        display: inline-block;
+        background: #e6af1a;
+        color: #fff;
+        padding: 6px 35px;
+        border-radius:  4px;
+        margin: 20px;
+        
+       
+    }
+
+    .link_add{
+        background: #35682d;
+        margin: 4px;
+        padding: 4px;
+        border-radius: 4px ;
+        color: #fff;
+    }
+
+    table{
+        border-collapse: collapse;
+        font-size: 12pt;
+        width: 100%;
+    }
+
+     table th{
+        text-align: center;
+        padding: 10px;
+        background: #35682d;
+        color: #fff;
+    }
+
+.datos_cliente, .datos_venta, .title_page{
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+#detalle_venta tr{
+	background-color: #FFF !important;
 }
 
-.seccionR{
-    width: 30%;
-    height: auto;
-    margin: 10px;
-}
 
-.seccionR h2{
-    text-align: center;
-    background-color: #35682d;
-    color: #fff;
+#detalle_venta td{
+    display: initial;
+    margin-left: 151px;
     
 }
 
-.seccionR h3{
-    text-align: center;
-    background-color: #35682d;
-    color: #fff;
-}
 
-
-.reporte{
-    /* border: 1px solid black; */
-    width: 400px;
-    height: 170px;
-    margin-top: 15px;
-    background-color:#e2e3de;
-    box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
-}
-.reporte  ul{
-    padding: 0;
-    margin: 0;
-    display: flex;
+.datos{
+	background-color:#a3d49b;;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    flex-direction: column;
+    border: 2px solid #7ab871;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
 }
-li{
-    font-size: 20px;
+.action_cliente{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
 }
 
-form{
+.datos label{
+	margin: 5px auto;
+}
+
+.label{
+    text-align: center;
+}
+.wid1000{
+    width: 15rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+}
+.wd20{
+	width: 20%;
+}
+.wd25{
+	width: 25%;
+}
+.label{
     align-items: center;
 }
 
-label{
+.wd40{
+	width: 40%;
+}
+.wd60{
+	width: 60%;
+}
+.wd100{
+	width: 100%;
+}
+#div_registro_cliente, #add_product_venta{
+	display: none;
+}
+.displayN{
+	display: none;
+}
+.tbl_venta{
+	max-width: 900px;
+	margin: auto;
+}
+.tbl_venta tfoot td{
+	font-weight: bold;
+}
+.textright{
+	text-align: right;
+}
+.textcenter{
+	justify-content: center;
+}
+.textleft{
+	text-align: left;
+}
+.btn_anular{
+	background-color: #f36a6a;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 3px;
+	color: #FFF;
+}
+
+
+
+.center{
+    margin-left: 963px;
     display: block;
-    margin-bottom: 10px;
+    margin-top: -20px;
 }
 
-.reportexDia{
-    width: 70%;
-    height: 30px;
-    border: none;
+.centerrr{
+    margin-left: 2px;
 }
 
-.Btn-generar{
-    margin: 10px;
-    width: 30%;
-    height: 30px;
-    border: none;
-    background-color: #009245;
+#detalle_totales{
+    margin-left: 59rem;
+    font-weight: 700;
 }
 
-.reporte .boton{
-    background-color: #009245;
-    margin: 20px 0;
-    cursor: pointer;
-}
 
-.reporte .boton:hover{
-    background-color: #279259;
-    margin: 20px 0;
+
     
-}
-
-
-h3{
-    color: white;
-    font-weight: 300;
-}
-
-.inventario{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
-}
-
-
-.inventarioMORE{
-   overflow: scroll;
-    background-color:rgb(237, 238, 235);
-    width: 80vw;
-    height: auto;
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    top: 25%;
-    left: 10%;
-    overflow: hidden;
-}
-
-.inventarioMORE::-webkit-scrollbar{
-    width: 7px;
-}
-
-.inventarioMORE::-webkit-scrollbar-thumb{
-    background-color: #35682d;
-}
-
-.inventarioMORE img{
-    width: 80px;
-    height: 80px;
-}
-
-table{
-    margin-bottom: 10px;
-}
-
-
-
-.Enviar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Anadir{
-    margin-bottom: 10px; 
-}
-
-/*NOTIFICACIONES AGREGAR*/
-.Notificacion {
-    position: fixed;
-    bottom: 24rem;
-    left: 30rem;
-    border-radius: 3px;
-    padding: 1rem 3rem;
-    opacity: 0;
-    transition: opacity .5s ease;
-  
-}
-.visible {
-    opacity: 1;
-}
-/** Colores de la notificacion**/
-.correcto {
-    background-color: rgb(179,241, 117);
-     color: green;
-}
-.error {
-    background-color: rgb(238, 148, 166);
-    color: rgb(163, 0, 33);
-}
-
-.btn-editar{
-    color: rgb(10, 134, 10);
-    font-size: 25px;
-}
-
-.btn-borrar{
-    color: rgb(170, 31, 31);
-    font-size: 25px;
-}
-
-
-.UPDATE{
-    display: flex;
-}
-
-.contador-rango{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.contador-rango p{
-    margin: 0;
-}
-
-.ReporteDown{
-    display: none;
-}
-
-.Reporte{
-    display: block;
-}
-
-.fechas{
-    color:  #a2ca9c;
-}

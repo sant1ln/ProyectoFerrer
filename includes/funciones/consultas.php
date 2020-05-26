@@ -126,6 +126,17 @@ function obtenerCuidos(){
     }
 }
 
+function obtenerCuido($id){
+    include 'bd_conexion.php';
+    try{
+        return $conn->query("SELECT  Nombre_Producto, Precio_Venta FROM producto WHERE Id_Producto = $id");
+    }catch (Exception $e){
+        echo "Error!!". $e->getMessage() ."<br>";
+        return false;
+    }
+
+}
+
 function obtenerInsecticida(){
     include 'bd_conexion.php';
     try{
