@@ -9,10 +9,11 @@
         $Telefono  = filter_var($_POST['telefonoP'], FILTER_SANITIZE_STRING);
         $direccion = filter_var($_POST['direccionP'], FILTER_SANITIZE_STRING);
         $creador   = filter_var($_POST['creador'], FILTER_SANITIZE_STRING);
+        $hoy = date("Y-m-j");
 
         try{
-            $stmt = $conn->prepare("INSERT INTO proveedor (Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor, creador) VALUES (?,?,?,?,?) ");
-            $stmt->bind_param("sssss",$cedula, $nombre, $Telefono,$direccion,$creador);
+            $stmt = $conn->prepare("INSERT INTO proveedor (Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor, creador, FechaCreacion) VALUES (?,?,?,?,?,?) ");
+            $stmt->bind_param("ssssss",$cedula, $nombre, $Telefono,$direccion,$creador,$hoy);
             $stmt->execute();
           /*   $respuesta = array(
                 'respuesta' => $stmt->error_list,
@@ -27,6 +28,7 @@
                     'telefono' => $Telefono,
                     'direccion' => $direccion,
                     'creador' => $creador,
+                    'fechaCre' => $hoy,
                     'id_insertado' => $stmt->insert_id
                     
                 ); 

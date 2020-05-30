@@ -12,10 +12,10 @@ if($_POST [Accion] == 'ingresar'){
     $Tipo = filter_var($_POST['Tipo'], FILTER_SANITIZE_STRING);
     $Precio = filter_var($_POST['Precio'], FILTER_SANITIZE_NUMBER_INT);
     $Nombre_u = ($_POST['Nombre_u']);
-
+    $hoy = date("Y-m-j");
     try {
-        $stmt = $conn->prepare("INSERT INTO producto (Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta,Nombre_Usuario) VALUES (?,?,?,?,?)");
-        $stmt->bind_param("issis", $Codigo, $Nombre, $Tipo, $Precio,$Nombre_u);
+        $stmt = $conn->prepare("INSERT INTO producto (Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta,Nombre_Usuario,FechaCreacion) VALUES (?,?,?,?,?,?)");
+        $stmt->bind_param("ississ", $Codigo, $Nombre, $Tipo, $Precio,$Nombre_u,$hoy);
         $stmt->execute();
         
         if($stmt->affected_rows == 1){
@@ -27,7 +27,8 @@ if($_POST [Accion] == 'ingresar'){
                     'Nombre'=>$Nombre,
                     'Tipo'=>$Tipo,
                     'Precio'=>$Precio,
-                    'Nombre_u'=>$Nombre_u
+                    'Nombre_u'=>$Nombre_u,
+                    'fechacre' => $hoy
                 )
             );
 
@@ -84,9 +85,9 @@ if($_POST [Accion] == 'editar'){
     $Tipo = filter_var($_POST['Tipo'], FILTER_SANITIZE_STRING);
     $Precio = filter_var($_POST['Precio'], FILTER_SANITIZE_NUMBER_INT);
     $Nombre_u = ($_POST['Nombre_u']);
-   
+    $hoy = date("Y-m-j");
     try{
-     $stmt =  $conn->prepare("UPDATE producto SET Nombre_Producto = ?, Id_Tipo_Producto = ?, Precio_Venta = ?, Nombre_Usuario = ?  WHERE Id_Producto = ?");
+     $stmt =  $conn->prepare("UPDATE producto SET Nombre_Producto = ?, Id_Tipo_Producto = ?, Precio_Venta = ?, Nombre_Usuario = ?, 	FechaCreacion='$hoy'  WHERE Id_Producto = ?");
     $stmt->bind_param("ssisi", $Nombre, $Tipo,  $Precio, $Nombre_u, $Codigo);
   
    

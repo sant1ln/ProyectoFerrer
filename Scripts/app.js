@@ -185,7 +185,8 @@ function insertarBD(datos) {
                  <td>${respuesta.datos.Nombre}</td>
                  <td>${respuesta.datos.Tipo}</td>
                  <td>${respuesta.datos.Precio}</td>
-                 <td>${respuesta.datos.Nombre_u}</td>
+                 <td>${respuesta.datos.Nombre_u} </br>
+                 <span class="fecha">${respuesta.datos.fechacre} </span></td>
 
                `; 
 

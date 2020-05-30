@@ -5,7 +5,7 @@ function obtenerProductos(){
     include 'bd_conexion.php'; //abrir la conexion
 
     try{
-        return $conn->query("SELECT Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta, Nombre_Usuario FROM producto");
+        return $conn->query("SELECT Id_Producto, Nombre_Producto, Id_Tipo_Producto, Precio_Venta, Nombre_Usuario, FechaCreacion FROM producto");
         
     }catch(Exception $e){
         echo "error!!". $e->getMessage() ."<br>";
@@ -18,10 +18,10 @@ function obtenerInventario(){
     include 'bd_conexion.php'; //abrir la conexion
 
     try {
-               $sql = "SELECT Id_Producto, Id_Tipo_Producto, Nombre_Producto, Precio_Venta,Nombre_Usuarioo, SUM(Cantidad_Producto) as existencia ";
-               $sql .= "FROM producto, entradas_de_producto ";
-               $sql .=  "WHERE producto.Id_Producto=entradas_de_producto.Id_Productoo ";
-               $sql .=  "GROUP BY Id_Producto,Nombre_Usuarioo ";
+         $sql = "SELECT Id_Producto, Id_Tipo_Producto, Nombre_Producto, Precio_Venta,Nombre_Usuarioo, FechaCreacion, SUM(Cantidad_Producto) as existencia ";
+         $sql .= "FROM producto, entradas_de_producto ";
+         $sql .=  "WHERE producto.Id_Producto=entradas_de_producto.Id_Productoo ";
+         $sql .=  "GROUP BY Id_Producto,Nombre_Usuarioo ";
               //var_dump($sql);               
              //  die($sql);
                return $conn->query($sql);
@@ -77,7 +77,7 @@ function obtenerProveedores(){
     include 'bd_conexion.php';
 
     try{
-        return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor, creador FROM proveedor");
+        return $conn->query("SELECT Cedula_Proveedor, Nombre_proveedor, Telefono_proveedor, Ciudad_proveedor, creador,FechaCreacion FROM proveedor");
     }catch (Exception $e){
         echo "Error!!". $e->getMessage() ."<br>";
         return false;

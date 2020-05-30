@@ -4,7 +4,7 @@ Lista_Provedores = document.querySelector('#Lista_Provedores tbody')
 eventListeresP();
 
 function eventListeresP(){
-    prueba();
+   
     Formularioproveedor.addEventListener('submit',leerFormularioP);
     Lista_Provedores.addEventListener('click',eliminarProveedor);
 }
@@ -136,7 +136,8 @@ function MostrarProvedorCreado(respuesta){
     <td>${respuesta.nombre}</td>
     <td>${respuesta.telefono}</td>
     <td>${respuesta.direccion}</td>
-    <td>${respuesta.creador}</td>
+    <td>${respuesta.creador} </br>
+    <span class="fecha">${respuesta.fechaCre} </span></td>
      `;
      const contenedorAcciones = document.createElement('td');
      const iconoEditar = document.createElement('i');

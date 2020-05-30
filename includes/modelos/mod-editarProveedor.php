@@ -9,9 +9,9 @@ if($_POST['accion'] == 'editar'){
         $creador   = filter_var($_POST['creador'], FILTER_SANITIZE_STRING);
         $creador   = ($_POST['creador']);
         $cedulaUP  = ($_POST['cedula']);
-
+        $hoy = date("Y-m-j");
         try{
-            $stmt = $conn->prepare("UPDATE proveedor SET  Cedula_Proveedor = ?, Nombre_proveedor = ?, Telefono_proveedor = ?, Ciudad_proveedor = ?, creador = '$creador'   WHERE Cedula_Proveedor = ?");
+            $stmt = $conn->prepare("UPDATE proveedor SET  Cedula_Proveedor = ?, Nombre_proveedor = ?, Telefono_proveedor = ?, Ciudad_proveedor = ?, creador = '$creador',FechaCreacion='$hoy'   WHERE Cedula_Proveedor = ?");
             $stmt->bind_param("sssss",$cedula, $nombre, $Telefono,$direccion, $cedulaUP  );
             $stmt->execute();
             

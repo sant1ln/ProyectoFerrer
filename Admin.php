@@ -5,7 +5,12 @@
   //echo($_SESSION['nombre']);
  
 ?>
-    
+    <div>
+<?php
+$hoy = date("Y-m-j");
+echo $hoy;
+?>
+    </div>
   <div class="contenedor contenedorA">
     <div class="contenedorInventario">
 
@@ -76,7 +81,8 @@
                                 <td><?php echo $inventario['Nombre_Producto']; ?></td>
                                 <td><?php echo $inventario['Precio_Venta']; ?></td>
                                 <td><?php echo $inventario['existencia']; ?></td>
-                                <td><?php echo $inventario['Nombre_Usuarioo']; ?></td>
+                                <td><?php echo $inventario['Nombre_Usuarioo']; ?> <br>
+                <span class="fecha"><?php echo $inventario['FechaCreacion']; ?></span> </td>
 
                                 <td>
                                         <button data-id="<?php echo $inventario['Id_Producto']; ?>" type="button"  class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
@@ -159,7 +165,8 @@
                                     <td><?php echo $Producto['Nombre_Producto']; ?></td>
                                     <td><?php echo $Producto['Id_Tipo_Producto']; ?></td>
                                     <td><?php echo $Producto['Precio_Venta']; ?></td>
-                                    <td><?php echo $Producto['Nombre_Usuario']; ?></td>
+                                    <td><?php echo $Producto['Nombre_Usuario']; ?> <br>
+                                    <span title="FechaCreacion" class="fecha"><?php echo $Producto['FechaCreacion']; ?></span></td>
 
                                     <td>
                                         <a class="btn-swe3btn" href="editar.php?id=<?php echo $Producto['Id_Producto']; ?>"><i class="fas fa-pen-square btn-editar"></i></a>
@@ -339,7 +346,8 @@
                       <td><?php echo $proveedor["Nombre_proveedor"]; ?></td>
                       <td><?php echo $proveedor["Telefono_proveedor"]; ?></td>
                       <td><?php echo $proveedor["Ciudad_proveedor"]; ?></td>
-                      <td><?php echo $proveedor["creador"]; ?></td>
+                      <td><?php echo $proveedor["creador"]; ?> <br>
+                      <span title="FechaCreacion" class="fecha"><?php echo $proveedor['FechaCreacion']; ?></span></td>
                         <td>                
                             <a class="btn" href="updProveedor.php?id=<?php echo $proveedor["Cedula_Proveedor"] ?> "><i class="fas fa-pen-square  btn-editar"></i></a>
                             <button type="button" data-id="<?php echo $proveedor["Cedula_Proveedor"] ?>" class="btn-borrar btn"><i class="fas fa-trash-alt btn-borrar"></i></button>
