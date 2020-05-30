@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 26, 2020 at 10:48 PM
--- Server version: 5.7.24
--- PHP Version: 7.3.7
+-- Servidor: localhost:3306
+-- Tiempo de generación: 30-05-2020 a las 23:28:58
+-- Versión del servidor: 5.7.24
+-- Versión de PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,12 +19,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ferrer`
+-- Base de datos: `ferrer`
 --
 
 DELIMITER $$
 --
--- Procedures
+-- Procedimientos
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_detalle_temp` (`cod_Producto` INT, `cantidad` INT, `token_user` VARCHAR(50))  BEGIN
  	DECLARE precio_actual decimal(10.0);
@@ -112,7 +112,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cliente`
+-- Estructura de tabla para la tabla `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -124,7 +124,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `cliente`
+-- Volcado de datos para la tabla `cliente`
 --
 
 INSERT INTO `cliente` (`id_cliente`, `cedula_cliente`, `nombre`, `telefono`, `direccion`) VALUES
@@ -140,7 +140,7 @@ INSERT INTO `cliente` (`id_cliente`, `cedula_cliente`, `nombre`, `telefono`, `di
 -- --------------------------------------------------------
 
 --
--- Table structure for table `configuracion`
+-- Estructura de tabla para la tabla `configuracion`
 --
 
 CREATE TABLE `configuracion` (
@@ -155,7 +155,7 @@ CREATE TABLE `configuracion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `configuracion`
+-- Volcado de datos para la tabla `configuracion`
 --
 
 INSERT INTO `configuracion` (`id_configuracion`, `nit`, `nombre`, `razon_social`, `telefono`, `email`, `direccion`, `iva`) VALUES
@@ -164,7 +164,7 @@ INSERT INTO `configuracion` (`id_configuracion`, `nit`, `nombre`, `razon_social`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_factura`
+-- Estructura de tabla para la tabla `detalle_factura`
 --
 
 CREATE TABLE `detalle_factura` (
@@ -175,132 +175,10 @@ CREATE TABLE `detalle_factura` (
   `precio_venta` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `detalle_factura`
---
-
-INSERT INTO `detalle_factura` (`Correlativo`, `No_factura`, `id_producto`, `cantidad`, `precio_venta`) VALUES
-(72, 1, 4, 1, '8000.00'),
-(73, 2, 2, 1, '2300.00'),
-(74, 2, 4, 4, '8000.00'),
-(76, 3, 4, 1, '8000.00'),
-(77, 4, 4, 1, '8000.00'),
-(78, 4, 8, 1, '4500.00'),
-(80, 5, 4, 1, '8000.00'),
-(81, 5, 8, 1, '4500.00'),
-(83, 6, 1, 1, '1200.00'),
-(84, 6, 4, 1, '8000.00'),
-(86, 7, 4, 1, '8000.00'),
-(87, 8, 4, 15, '8000.00'),
-(88, 8, 10, 7, '7650.00'),
-(90, 9, 4, 1, '8000.00'),
-(91, 9, 6, 7, '6520.00'),
-(93, 10, 2, 1, '2300.00'),
-(94, 10, 4, 4, '8000.00'),
-(96, 11, 2, 3, '2300.00'),
-(97, 12, 4, 1, '8000.00'),
-(98, 13, 4, 1, '8000.00'),
-(99, 14, 4, 1, '8000.00'),
-(100, 15, 4, 1, '8000.00'),
-(101, 16, 4, 1, '8000.00'),
-(102, 16, 4, 1, '8000.00'),
-(104, 17, 4, 1, '8000.00'),
-(105, 18, 4, 1, '8000.00'),
-(106, 19, 4, 3, '8000.00'),
-(107, 19, 2, 1, '2300.00'),
-(109, 20, 1, 1, '1200.00'),
-(110, 21, 1, 1, '1200.00'),
-(111, 22, 4, 1, '8000.00'),
-(112, 23, 4, 1, '8000.00'),
-(113, 24, 4, 1, '8000.00'),
-(114, 25, 4, 1, '8000.00'),
-(115, 26, 4, 1, '8000.00'),
-(116, 26, 4, 1, '8000.00'),
-(118, 27, 4, 1, '8000.00'),
-(119, 28, 4, 1, '8000.00'),
-(120, 29, 4, 1, '8000.00'),
-(121, 30, 4, 1, '8000.00'),
-(122, 31, 4, 1, '8000.00'),
-(123, 32, 4, 1, '8000.00'),
-(124, 33, 4, 1, '8000.00'),
-(125, 34, 4, 1, '8000.00'),
-(126, 35, 4, 1, '8000.00'),
-(127, 36, 4, 1, '8000.00'),
-(128, 37, 4, 1, '8000.00'),
-(129, 38, 4, 1, '8000.00'),
-(130, 39, 4, 1, '8000.00'),
-(131, 40, 4, 1, '8000.00'),
-(132, 41, 4, 1, '8000.00'),
-(133, 42, 4, 1, '8000.00'),
-(134, 43, 4, 1, '8000.00'),
-(135, 43, 2, 1, '2300.00'),
-(137, 44, 4, 1, '8000.00'),
-(138, 45, 4, 1, '8000.00'),
-(139, 46, 1, 1, '1200.00'),
-(140, 47, 1, 1, '1200.00'),
-(141, 48, 4, 1, '8000.00'),
-(142, 49, 4, 1, '8000.00'),
-(143, 50, 4, 1, '8000.00'),
-(144, 51, 4, 1, '8000.00'),
-(145, 52, 4, 1, '8000.00'),
-(146, 53, 4, 1, '8000.00'),
-(147, 54, 4, 1, '8000.00'),
-(148, 55, 4, 1, '8000.00'),
-(149, 56, 4, 1, '8000.00'),
-(150, 57, 2, 1, '2300.00'),
-(151, 58, 4, 1, '8000.00'),
-(152, 59, 2, 3, '2300.00'),
-(153, 59, 5, 7, '8900.00'),
-(155, 60, 4, 1, '8000.00'),
-(156, 60, 1, 1, '1200.00'),
-(157, 60, 7, 4, '1000.00'),
-(158, 61, 4, 1, '8000.00'),
-(159, 61, 2, 7, '2300.00'),
-(161, 62, 2, 1, '2300.00'),
-(162, 63, 4, 1, '8000.00'),
-(163, 64, 4, 1, '8000.00'),
-(164, 65, 4, 7, '8000.00'),
-(165, 66, 1, 7, '1200.00'),
-(166, 66, 2, 7, '2300.00'),
-(167, 66, 4, 4, '8000.00'),
-(168, 66, 10, 4, '7650.00'),
-(169, 66, 8, 45, '4500.00'),
-(172, 67, 1, 7, '1200.00'),
-(173, 67, 2, 7, '2300.00'),
-(174, 67, 4, 4, '8000.00'),
-(175, 67, 10, 4, '7650.00'),
-(176, 67, 8, 45, '4500.00'),
-(179, 68, 1, 7, '1200.00'),
-(180, 68, 2, 7, '2300.00'),
-(181, 68, 4, 4, '8000.00'),
-(182, 68, 10, 4, '7650.00'),
-(183, 68, 8, 45, '4500.00'),
-(184, 68, 4, 1, '8000.00'),
-(186, 69, 1, 1, '1200.00'),
-(187, 70, 4, 1, '8000.00'),
-(188, 70, 4, 1, '8000.00'),
-(189, 70, 4, 1, '8000.00'),
-(190, 70, 2, 1, '2300.00'),
-(191, 70, 4, 1, '8000.00'),
-(192, 70, 4, 1, '8000.00'),
-(193, 70, 4, 7, '8000.00'),
-(194, 70, 5, 2, '8900.00'),
-(202, 71, 4, 1, '8000.00'),
-(203, 71, 9, 1, '10000.00'),
-(204, 71, 10, 1, '7650.00'),
-(205, 72, 1, 4, '1200.00'),
-(206, 72, 4, 15, '8000.00'),
-(207, 72, 10, 22, '7650.00'),
-(208, 73, 1, 1, '1200.00'),
-(209, 74, 2, 100, '2300.00'),
-(210, 75, 1, 4, '1200.00'),
-(211, 75, 4, 1, '8000.00'),
-(213, 76, 4, 1, '8000.00');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_temp`
+-- Estructura de tabla para la tabla `detalle_temp`
 --
 
 CREATE TABLE `detalle_temp` (
@@ -314,7 +192,7 @@ CREATE TABLE `detalle_temp` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empleado`
+-- Estructura de tabla para la tabla `empleado`
 --
 
 CREATE TABLE `empleado` (
@@ -324,22 +202,23 @@ CREATE TABLE `empleado` (
   `Cedula` varchar(15) NOT NULL,
   `Celular` varchar(15) NOT NULL,
   `Direccion` varchar(50) NOT NULL,
-  `passwd` varchar(60) NOT NULL
+  `passwd` varchar(60) NOT NULL,
+  `FechaCreacion` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `empleado`
+-- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`) VALUES
-(19, 'Administrador', 'Estefania', '212514', '325', 'CL 107S SUR 50 99', '$2y$12$dEr1PeuRPlawbpnDp1fueuaLFw50pb2DiZeOJ8caz6CgReIl6mWla'),
-(20, 'Administrador', 'Santiago', '22', '22', 'CL 107S SUR 50 99', '$2y$12$Hmb69IolUJfEpQvrFN4f/.dYT.IGqHdq/7YfdmO8V67Pypn5Vqa3i'),
-(21, 'Cajero', 'isabel', '147', '3175022029', 'CL 107S SUR 50 99', '$2y$12$303ffkFNj2UsK0IkRVzJleDI5VBN0BDOLYWA2w.O/DsEbI2v7Ub9m');
+INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`, `FechaCreacion`) VALUES
+(19, 'Administrador', 'Estefania', '212514', '325', 'CL 107S SUR 50 99', '$2y$12$dEr1PeuRPlawbpnDp1fueuaLFw50pb2DiZeOJ8caz6CgReIl6mWla', 0),
+(20, 'Administrador', 'Santiago', '22', '22', 'CL 107S SUR 50 99', '$2y$12$Hmb69IolUJfEpQvrFN4f/.dYT.IGqHdq/7YfdmO8V67Pypn5Vqa3i', 0),
+(21, 'Cajero', 'isabel', '147', '3175022029', 'CL 107S SUR 50 99', '$2y$12$303ffkFNj2UsK0IkRVzJleDI5VBN0BDOLYWA2w.O/DsEbI2v7Ub9m', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entradas_de_producto`
+-- Estructura de tabla para la tabla `entradas_de_producto`
 --
 
 CREATE TABLE `entradas_de_producto` (
@@ -351,24 +230,16 @@ CREATE TABLE `entradas_de_producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `entradas_de_producto`
+-- Volcado de datos para la tabla `entradas_de_producto`
 --
 
 INSERT INTO `entradas_de_producto` (`Id_entrada_producto`, `Cantidad_Producto`, `Id_Productoo`, `Cedula_Proveedor`, `Nombre_Usuarioo`) VALUES
-(37, 91, 1, 232, 'Santiago'),
-(38, 0, 2, 232, 'Santiago'),
-(39, 100, 3, 232, 'Santiago'),
-(40, 38, 4, 232, 'Santiago'),
-(41, 63, 6, 232, 'Santiago'),
-(43, 89, 5, 232, 'Santiago'),
-(44, 74, 7, 232, 'Santiago'),
-(45, 57, 9, 232, 'Santiago'),
-(46, 123, 10, 232, 'Santiago');
+(1, 123, 2, 122, 'Santiago');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factura`
+-- Estructura de tabla para la tabla `factura`
 --
 
 CREATE TABLE `factura` (
@@ -381,7 +252,7 @@ CREATE TABLE `factura` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `factura`
+-- Volcado de datos para la tabla `factura`
 --
 
 INSERT INTO `factura` (`No_factura`, `Fecha`, `Empleado`, `Cod_cliente`, `total_factura`, `estado`) VALUES
@@ -460,12 +331,13 @@ INSERT INTO `factura` (`No_factura`, `Fecha`, `Empleado`, `Cod_cliente`, `total_
 (73, '2020-05-26 01:51:27', 21, 7, '1200.00', 1),
 (74, '2020-05-26 17:17:21', 19, 1, '230000.00', 1),
 (75, '2020-05-26 17:23:09', 19, 1, '12800.00', 1),
-(76, '2020-05-26 17:41:18', 19, 1, '8000.00', 1);
+(76, '2020-05-26 17:41:18', 19, 1, '8000.00', 1),
+(77, '2020-05-30 16:28:58', 20, 6, '5000.00', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producto`
+-- Estructura de tabla para la tabla `producto`
 --
 
 CREATE TABLE `producto` (
@@ -473,29 +345,23 @@ CREATE TABLE `producto` (
   `Nombre_Producto` varchar(25) NOT NULL,
   `Id_Tipo_Producto` varchar(50) NOT NULL,
   `Precio_Venta` int(11) NOT NULL,
-  `Nombre_Usuario` varchar(30) NOT NULL
+  `Nombre_Usuario` varchar(30) NOT NULL,
+  `FechaCreacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `producto`
+-- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`, `Nombre_Usuario`) VALUES
-(1, 'dogshow', 'Cuidos', 1200, 'Santiago'),
-(2, 'estiercol', 'Abonos', 2300, 'Santiago'),
-(3, 'girasol', 'Semillas', 4700, 'Santiago'),
-(4, 'vetenira', 'Insecticida', 8000, 'Santiago'),
-(5, 'pedigree', 'Cuidos', 8900, 'Santiago'),
-(6, 'cartucho', 'Semillas', 6520, 'Santiago'),
-(7, 'Raid', 'Insecticida', 1000, 'Santiago'),
-(8, 'frijol', 'Semillas', 4500, 'Santiago'),
-(9, 'melasa', 'Cuidos', 10000, 'Santiago'),
-(10, 'lavanda', 'Abonos', 7650, 'Santiago');
+INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`, `Nombre_Usuario`, `FechaCreacion`) VALUES
+(2, 'Luzes', 'Abonos', 123, 'Santiago', '2020-05-30'),
+(3, 'Pedigrie', 'Abonos', 12000, 'Santiago', '2020-05-30'),
+(4, 'Electricable', 'Abonos', 3, 'Santiago', '2020-05-30');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proveedor`
+-- Estructura de tabla para la tabla `proveedor`
 --
 
 CREATE TABLE `proveedor` (
@@ -503,21 +369,24 @@ CREATE TABLE `proveedor` (
   `Nombre_proveedor` varchar(20) NOT NULL,
   `Telefono_proveedor` bigint(200) NOT NULL,
   `Ciudad_proveedor` varchar(20) NOT NULL,
-  `creador` varchar(30) NOT NULL
+  `creador` varchar(30) NOT NULL,
+  `FechaCreacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `proveedor`
+-- Volcado de datos para la tabla `proveedor`
 --
 
-INSERT INTO `proveedor` (`Cedula_Proveedor`, `Nombre_proveedor`, `Telefono_proveedor`, `Ciudad_proveedor`, `creador`) VALUES
-(232, 'sara', 3175022029, 'CL 107S SUR 50 99', 'Santiago'),
-(71334924, 'janneth', 3175022920, 'medellin', 'Estefania');
+INSERT INTO `proveedor` (`Cedula_Proveedor`, `Nombre_proveedor`, `Telefono_proveedor`, `Ciudad_proveedor`, `creador`, `FechaCreacion`) VALUES
+(103, 'Andres', 111, '123', 'Santiago', '2020-05-30'),
+(122, 'Santiago ', 0, '123', 'Santiago', '2020-05-30'),
+(321, 'Jose Manuel', 0, 'Carrera 64 -16', 'Santiago', '2020-05-30'),
+(123555, 'PurinaLatam', 300058789, 'Bogota', 'Estefania', '2020-01-16');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipo_producto`
+-- Estructura de tabla para la tabla `tipo_producto`
 --
 
 CREATE TABLE `tipo_producto` (
@@ -526,7 +395,7 @@ CREATE TABLE `tipo_producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tipo_producto`
+-- Volcado de datos para la tabla `tipo_producto`
 --
 
 INSERT INTO `tipo_producto` (`Id_Tipo_Producto`, `Tipo_Producto`) VALUES
@@ -536,23 +405,23 @@ INSERT INTO `tipo_producto` (`Id_Tipo_Producto`, `Tipo_Producto`) VALUES
 ('Semillas', 'Semillas');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `cliente`
+-- Indices de la tabla `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
--- Indexes for table `configuracion`
+-- Indices de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
   ADD PRIMARY KEY (`id_configuracion`);
 
 --
--- Indexes for table `detalle_factura`
+-- Indices de la tabla `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
   ADD PRIMARY KEY (`Correlativo`),
@@ -560,21 +429,21 @@ ALTER TABLE `detalle_factura`
   ADD KEY `fk_id_producto` (`id_producto`);
 
 --
--- Indexes for table `detalle_temp`
+-- Indices de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
   ADD PRIMARY KEY (`Correlativo`),
   ADD KEY `No_factura` (`Id_Producto`);
 
 --
--- Indexes for table `empleado`
+-- Indices de la tabla `empleado`
 --
 ALTER TABLE `empleado`
   ADD PRIMARY KEY (`id_empleado`),
   ADD KEY `id_empleado` (`id_empleado`);
 
 --
--- Indexes for table `entradas_de_producto`
+-- Indices de la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
   ADD PRIMARY KEY (`Id_entrada_producto`),
@@ -582,7 +451,7 @@ ALTER TABLE `entradas_de_producto`
   ADD KEY `fk_Entradas_proveedor` (`Cedula_Proveedor`);
 
 --
--- Indexes for table `factura`
+-- Indices de la tabla `factura`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`No_factura`),
@@ -590,7 +459,7 @@ ALTER TABLE `factura`
   ADD KEY `fk_cliente` (`Cod_cliente`);
 
 --
--- Indexes for table `producto`
+-- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`Id_Producto`),
@@ -598,96 +467,96 @@ ALTER TABLE `producto`
   ADD KEY `Id_Tipo_Producto` (`Id_Tipo_Producto`);
 
 --
--- Indexes for table `proveedor`
+-- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`Cedula_Proveedor`);
 
 --
--- Indexes for table `tipo_producto`
+-- Indices de la tabla `tipo_producto`
 --
 ALTER TABLE `tipo_producto`
   ADD PRIMARY KEY (`Id_Tipo_Producto`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `cliente`
+-- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `id_cliente` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `configuracion`
+-- AUTO_INCREMENT de la tabla `configuracion`
 --
 ALTER TABLE `configuracion`
   MODIFY `id_configuracion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `detalle_factura`
+-- AUTO_INCREMENT de la tabla `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
-  MODIFY `Correlativo` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `Correlativo` bigint(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `detalle_temp`
+-- AUTO_INCREMENT de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
-  MODIFY `Correlativo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Correlativo` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `empleado`
+-- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
   MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `entradas_de_producto`
+-- AUTO_INCREMENT de la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
-  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `factura`
+-- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `No_factura` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `No_factura` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `detalle_factura`
+-- Filtros para la tabla `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
   ADD CONSTRAINT `fk_id_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`Id_Producto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_nofactura` FOREIGN KEY (`No_factura`) REFERENCES `factura` (`No_factura`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `detalle_temp`
+-- Filtros para la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
   ADD CONSTRAINT `detalle_temp_ibfk_2` FOREIGN KEY (`Id_Producto`) REFERENCES `producto` (`Id_Producto`);
 
 --
--- Constraints for table `entradas_de_producto`
+-- Filtros para la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
   ADD CONSTRAINT `fk_Entradas_proveedor` FOREIGN KEY (`Cedula_Proveedor`) REFERENCES `proveedor` (`Cedula_Proveedor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_id_productos` FOREIGN KEY (`Id_Productoo`) REFERENCES `producto` (`Id_Producto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `factura`
+-- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
   ADD CONSTRAINT `FK_EMPLEADO` FOREIGN KEY (`Empleado`) REFERENCES `empleado` (`id_empleado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_cliente` FOREIGN KEY (`Cod_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `producto`
+-- Filtros para la tabla `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `fk_producto_tipoproducto` FOREIGN KEY (`Id_Tipo_Producto`) REFERENCES `tipo_producto` (`Id_Tipo_Producto`) ON DELETE CASCADE ON UPDATE CASCADE;
