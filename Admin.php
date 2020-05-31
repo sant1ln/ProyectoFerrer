@@ -7,8 +7,8 @@
 ?>
     <div>
 <?php
-$hoy = date("Y-m-j");
-echo $hoy;
+/* $hoy = date("Y-m-j");
+echo $hoy; */
 ?>
     </div>
   <div class="contenedor contenedorA">
