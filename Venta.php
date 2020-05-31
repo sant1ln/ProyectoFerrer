@@ -55,8 +55,8 @@
                   <option value="Efectivo">Efectivo</option>
                   <option value="Transferencia">Transferencia</option>
                 </select>
-                <a href="#" class="btn_ok textcenter" id="btn_facturar_venta"><i class="fas fa-ban"></i>Procesar</a>
-                <a href="#" class="btn_new textcenter" id="btn_anular_venta"><i class="far fa-edit">Anular</i></a>
+                <a href="#" class="btn_ok textcenter" id="btn_facturar_venta"><i class="far fa-edit"></i>Procesar</a>
+                <a href="#" class="btn_new textcenter" id="btn_anular_venta"><i class="fas fa-ban">Anular</i></a>
               </div>
             </div>
 
