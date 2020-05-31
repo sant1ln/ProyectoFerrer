@@ -448,6 +448,17 @@
         margin: 5px 320px;   
     }
 
+    .metodop{ 
+        display: inline-block;
+        background: #35682d;
+        color: #fff;
+        padding: 5px 25px;
+        border-radius: 4px;
+        margin: 20px;
+    
+    }
+    
+
     .btn_ok {
         display: inline-block;
         background: #35682d;
@@ -614,6 +625,16 @@
 
 .fecha{
   color: #2ed115;  
+}
+
+.header-session{
+    color: #fff;
+    margin-left: 31px;
+}
+
+.icon{
+   color: #152e21;
+   
 }
 
 

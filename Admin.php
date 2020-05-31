@@ -5,12 +5,7 @@
   //echo($_SESSION['nombre']);
  
 ?>
-    <div>
-<?php
-$hoy = date("Y-m-j");
-echo $hoy;
-?>
-    </div>
+
   <div class="contenedor contenedorA">
     <div class="contenedorInventario">
 

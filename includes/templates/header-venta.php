@@ -1,3 +1,6 @@
+<?php 
+$hoy = date("Y-m-j");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +22,10 @@
     <div class="Home">
     <nav class="TengoEstilos">
         <img src="./img/logo.png" alt="Logo">
+        <div>
+        <p class="header-session"><i class="icon fas fa-user"></i><?php echo $_SESSION['nombre']; ?></p>
+        <p class="header-session"><i class="icon fas fa-calendar-alt"></i> <?php echo $hoy; ?></p>
+        </div>
         <ul class="enlace-navegacion">
             <li><a id="vender" class="encalce" href="Venta.php">Vender</a></li>
             <a href="index.php?cerrar_session=true"><i class="fas fa-sign-out-alt Singout"></i></a>
