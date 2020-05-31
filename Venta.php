@@ -51,6 +51,10 @@
             </div>
             <div class="wd50">
               <div id="acciones_venta">
+                <select class="metodop" name="metodo" id="metodo">
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Transferencia">Transferencia</option>
+                </select>
                 <a href="#" class="btn_ok textcenter" id="btn_facturar_venta"><i class="fas fa-ban"></i>Procesar</a>
                 <a href="#" class="btn_new textcenter" id="btn_anular_venta"><i class="far fa-edit">Anular</i></a>
               </div>

@@ -30,6 +30,7 @@
 					<p>Fecha: 20/01/2019</p>
 					<p>Hora: 10:30am</p>
 					<p>Vendedor: Jorge Pérez Hernández Cabrera</p>
+					<p>Metodo pago: efectivo</p>
 				</div>
 			</td>
 		</tr>

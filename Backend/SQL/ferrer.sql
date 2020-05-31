@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 30-05-2020 a las 23:28:58
+-- Tiempo de generación: 31-05-2020 a las 04:00:00
 -- Versión del servidor: 5.7.24
--- Versión de PHP: 7.2.14
+-- Versión de PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -50,7 +50,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_detalle_temp` (IN `id_detall
         
        END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `procesar_venta` (IN `cod_usuario` INT, IN `cod_cliente` INT, IN `token` VARCHAR(50))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `procesar_venta` (IN `cod_usuario` INT, IN `cod_cliente` INT, IN `token` VARCHAR(50), IN `formapago` VARCHAR(50))  BEGIN
     	DECLARE factura int;
        
         DECLARE registros int;
@@ -75,7 +75,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `procesar_venta` (IN `cod_usuario` I
          	
             INSERT INTO tbl_tmp_tokenuser(cod_prod,cant_prod) SELECT Id_Producto,cantidad FROM detalle_temp WHERE token_user = token;
             
-            INSERT INTO factura(Empleado,Cod_cliente) VALUES(cod_usuario,cod_cliente);
+            INSERT INTO factura(Empleado,Cod_cliente,forma_pago) VALUES(cod_usuario,cod_cliente,formapago);
             SET factura = LAST_INSERT_ID();
             
             INSERT INTO detalle_factura(No_factura,id_producto,cantidad,precio_venta) SELECT (factura) as nofactura, Id_producto,cantidad,precio_venta FROM detalle_temp
@@ -175,6 +175,16 @@ CREATE TABLE `detalle_factura` (
   `precio_venta` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `detalle_factura`
+--
+
+INSERT INTO `detalle_factura` (`Correlativo`, `No_factura`, `id_producto`, `cantidad`, `precio_venta`) VALUES
+(28, 114, 3, 3, '12000.00'),
+(31, 115, 3, 6, '12000.00'),
+(33, 116, 2, 1, '4400.00'),
+(34, 116, 4, 3, '7400.00');
+
 -- --------------------------------------------------------
 
 --
@@ -202,18 +212,17 @@ CREATE TABLE `empleado` (
   `Cedula` varchar(15) NOT NULL,
   `Celular` varchar(15) NOT NULL,
   `Direccion` varchar(50) NOT NULL,
-  `passwd` varchar(60) NOT NULL,
-  `FechaCreacion` int(10) NOT NULL
+  `passwd` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `empleado`
 --
 
-INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`, `FechaCreacion`) VALUES
-(19, 'Administrador', 'Estefania', '212514', '325', 'CL 107S SUR 50 99', '$2y$12$dEr1PeuRPlawbpnDp1fueuaLFw50pb2DiZeOJ8caz6CgReIl6mWla', 0),
-(20, 'Administrador', 'Santiago', '22', '22', 'CL 107S SUR 50 99', '$2y$12$Hmb69IolUJfEpQvrFN4f/.dYT.IGqHdq/7YfdmO8V67Pypn5Vqa3i', 0),
-(21, 'Cajero', 'isabel', '147', '3175022029', 'CL 107S SUR 50 99', '$2y$12$303ffkFNj2UsK0IkRVzJleDI5VBN0BDOLYWA2w.O/DsEbI2v7Ub9m', 0);
+INSERT INTO `empleado` (`id_empleado`, `Cargo`, `Nombre`, `Cedula`, `Celular`, `Direccion`, `passwd`) VALUES
+(20, 'Administrador', 'Santiago', '22', '22', 'CL 107S SUR 50 99', '$2y$12$Hmb69IolUJfEpQvrFN4f/.dYT.IGqHdq/7YfdmO8V67Pypn5Vqa3i'),
+(21, 'Cajero', 'isabell', '147', '3175022029', 'CL 107S SUR 50 99', '$2y$12$Gnp1ajMJ4Jy0MJ4EOPf6cud5F.MS9Rr6KOX1WIKwfry8D5zo/dTZy'),
+(23, 'Administrador', 'Estefania', '214', '24', 'CL 107S SUR 50 99', '$2y$12$0e4xBYV74A4fA.p/vrpiNuF4nX2eV7MR0YYOmvUhF78cLD5aYKsfS');
 
 -- --------------------------------------------------------
 
@@ -234,7 +243,12 @@ CREATE TABLE `entradas_de_producto` (
 --
 
 INSERT INTO `entradas_de_producto` (`Id_entrada_producto`, `Cantidad_Producto`, `Id_Productoo`, `Cedula_Proveedor`, `Nombre_Usuarioo`) VALUES
-(1, 123, 2, 122, 'Santiago');
+(4, 36, 3, 103, 'Estefania'),
+(5, 66, 1, 103, 'Estefania'),
+(7, 88, 5, 103, 'Estefania'),
+(8, 86, 6, 103, 'Estefania'),
+(9, 46, 2, 103, 'Estefania'),
+(10, 96, 4, 103, 'Estefania');
 
 -- --------------------------------------------------------
 
@@ -248,91 +262,36 @@ CREATE TABLE `factura` (
   `Empleado` int(11) NOT NULL,
   `Cod_cliente` int(50) NOT NULL,
   `total_factura` decimal(10,2) DEFAULT NULL,
-  `estado` int(11) NOT NULL DEFAULT '1'
+  `estado` int(11) NOT NULL DEFAULT '1',
+  `forma_pago` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `factura`
 --
 
-INSERT INTO `factura` (`No_factura`, `Fecha`, `Empleado`, `Cod_cliente`, `total_factura`, `estado`) VALUES
-(1, '2020-05-25 17:57:35', 20, 1, '8000.00', 1),
-(2, '2020-05-25 20:24:12', 20, 1, '34300.00', 1),
-(3, '2020-05-25 20:25:40', 20, 1, '8000.00', 1),
-(4, '2020-05-25 20:30:55', 20, 1, NULL, 1),
-(5, '2020-05-25 20:31:00', 20, 1, NULL, 1),
-(6, '2020-05-25 20:32:43', 20, 1, '9200.00', 1),
-(7, '2020-05-25 20:33:27', 20, 1, '8000.00', 1),
-(8, '2020-05-25 20:33:56', 20, 1, '173550.00', 1),
-(9, '2020-05-25 20:37:46', 20, 1, '53640.00', 1),
-(10, '2020-05-25 22:49:02', 20, 1, '34300.00', 1),
-(11, '2020-05-25 22:52:01', 20, 1, '6900.00', 1),
-(12, '2020-05-25 23:18:48', 19, 1, '8000.00', 1),
-(13, '2020-05-25 23:24:17', 20, 1, '8000.00', 1),
-(14, '2020-05-25 23:26:14', 20, 1, '8000.00', 1),
-(15, '2020-05-25 23:27:41', 20, 1, '8000.00', 1),
-(16, '2020-05-25 23:28:52', 20, 1, '16000.00', 1),
-(17, '2020-05-25 23:29:22', 20, 1, '8000.00', 1),
-(18, '2020-05-25 23:29:39', 20, 1, '8000.00', 1),
-(19, '2020-05-25 23:30:28', 20, 1, '26300.00', 1),
-(20, '2020-05-25 23:32:52', 20, 1, '1200.00', 1),
-(21, '2020-05-25 23:36:01', 20, 1, '1200.00', 1),
-(22, '2020-05-25 23:36:33', 20, 1, '8000.00', 1),
-(23, '2020-05-25 23:37:14', 20, 1, '8000.00', 1),
-(24, '2020-05-25 23:37:24', 20, 1, '8000.00', 1),
-(25, '2020-05-25 23:37:55', 20, 1, '8000.00', 1),
-(26, '2020-05-25 23:38:53', 20, 1, '16000.00', 1),
-(27, '2020-05-25 23:40:04', 20, 1, '8000.00', 1),
-(28, '2020-05-25 23:40:43', 20, 1, '8000.00', 1),
-(29, '2020-05-25 23:41:07', 20, 1, '8000.00', 1),
-(30, '2020-05-25 23:41:47', 20, 1, '8000.00', 1),
-(31, '2020-05-25 23:56:23', 20, 1, '8000.00', 1),
-(32, '2020-05-25 23:56:49', 20, 1, '8000.00', 1),
-(33, '2020-05-26 00:01:04', 20, 1, '8000.00', 1),
-(34, '2020-05-26 00:02:16', 20, 1, '8000.00', 1),
-(35, '2020-05-26 00:05:51', 20, 1, '8000.00', 1),
-(36, '2020-05-26 00:06:36', 20, 1, '8000.00', 1),
-(37, '2020-05-26 00:07:26', 20, 1, '8000.00', 1),
-(38, '2020-05-26 00:07:49', 20, 1, '8000.00', 1),
-(39, '2020-05-26 00:08:18', 20, 1, '8000.00', 1),
-(40, '2020-05-26 00:08:37', 20, 1, '8000.00', 1),
-(41, '2020-05-26 00:08:48', 20, 1, '8000.00', 1),
-(42, '2020-05-26 00:10:33', 20, 1, '8000.00', 1),
-(43, '2020-05-26 00:11:47', 20, 1, '10300.00', 1),
-(44, '2020-05-26 00:12:23', 20, 1, '8000.00', 1),
-(45, '2020-05-26 00:16:27', 20, 1, '8000.00', 1),
-(46, '2020-05-26 00:17:11', 20, 1, '1200.00', 1),
-(47, '2020-05-26 00:18:25', 20, 1, '1200.00', 1),
-(48, '2020-05-26 00:18:38', 20, 1, '8000.00', 1),
-(49, '2020-05-26 00:20:12', 20, 1, '8000.00', 1),
-(50, '2020-05-26 00:21:29', 20, 1, '8000.00', 1),
-(51, '2020-05-26 00:21:53', 20, 1, '8000.00', 1),
-(52, '2020-05-26 00:24:36', 20, 1, '8000.00', 1),
-(53, '2020-05-26 00:25:47', 20, 1, '8000.00', 1),
-(54, '2020-05-26 00:26:36', 20, 1, '8000.00', 1),
-(55, '2020-05-26 00:31:37', 20, 1, '8000.00', 1),
-(56, '2020-05-26 00:33:44', 20, 1, '8000.00', 1),
-(57, '2020-05-26 00:34:49', 20, 1, '2300.00', 1),
-(58, '2020-05-26 00:35:53', 20, 1, '8000.00', 1),
-(59, '2020-05-26 00:38:01', 20, 1, '69200.00', 1),
-(60, '2020-05-26 00:44:05', 20, 1, '13200.00', 1),
-(61, '2020-05-26 00:45:36', 20, 1, '24100.00', 1),
-(62, '2020-05-26 00:46:40', 20, 1, '2300.00', 1),
-(63, '2020-05-26 00:49:28', 20, 1, '8000.00', 1),
-(64, '2020-05-26 00:50:16', 20, 1, '8000.00', 1),
-(65, '2020-05-26 01:37:22', 20, 1, '56000.00', 1),
-(66, '2020-05-26 01:38:21', 20, 3, NULL, 1),
-(67, '2020-05-26 01:38:37', 20, 3, NULL, 1),
-(68, '2020-05-26 01:39:04', 20, 3, NULL, 1),
-(69, '2020-05-26 01:39:27', 20, 3, '1200.00', 1),
-(70, '2020-05-26 01:40:21', 20, 3, '116100.00', 1),
-(71, '2020-05-26 01:44:19', 20, 6, '25650.00', 1),
-(72, '2020-05-26 01:49:04', 21, 6, '293100.00', 1),
-(73, '2020-05-26 01:51:27', 21, 7, '1200.00', 1),
-(74, '2020-05-26 17:17:21', 19, 1, '230000.00', 1),
-(75, '2020-05-26 17:23:09', 19, 1, '12800.00', 1),
-(76, '2020-05-26 17:41:18', 19, 1, '8000.00', 1),
-(77, '2020-05-30 16:28:58', 20, 6, '5000.00', 1);
+INSERT INTO `factura` (`No_factura`, `Fecha`, `Empleado`, `Cod_cliente`, `total_factura`, `estado`, `forma_pago`) VALUES
+(96, '2020-05-30 22:28:55', 20, 1, '246.00', 1, 'Efectivo'),
+(97, '2020-05-30 22:30:05', 20, 1, '123.00', 1, 'Efectivo'),
+(98, '2020-05-30 22:30:31', 20, 1, '123.00', 1, 'Efectivo'),
+(99, '2020-05-30 22:30:52', 20, 1, '123.00', 1, 'Efectivo'),
+(100, '2020-05-30 22:31:20', 20, 1, '123.00', 1, 'Efectivo'),
+(101, '2020-05-30 22:31:42', 20, 1, '123.00', 1, 'Efectivo'),
+(102, '2020-05-30 22:32:46', 20, 1, '123.00', 1, 'Efectivo'),
+(103, '2020-05-30 22:33:39', 20, 1, '123.00', 1, ''),
+(104, '2020-05-30 22:34:42', 20, 1, '123.00', 1, ''),
+(105, '2020-05-30 22:35:32', 20, 1, '123.00', 1, ''),
+(106, '2020-05-30 22:38:21', 20, 1, '246.00', 1, NULL),
+(107, '2020-05-30 22:43:04', 23, 1, '123.00', 1, NULL),
+(108, '2020-05-30 22:45:41', 23, 1, '123.00', 1, 'efectivo'),
+(109, '2020-05-30 22:49:10', 23, 1, '123.00', 1, 'Efectivo'),
+(110, '2020-05-30 22:49:24', 23, 1, '123.00', 1, 'Transferencia'),
+(111, '2020-05-30 22:50:01', 23, 1, '123.00', 1, 'Efectivo'),
+(112, '2020-05-30 22:51:01', 23, 1, '123.00', 1, 'Efectivo'),
+(113, '2020-05-30 22:51:33', 23, 1, '123.00', 1, 'Efectivo'),
+(114, '2020-05-30 22:52:48', 23, 1, '36246.00', 1, 'Efectivo'),
+(115, '2020-05-30 22:53:11', 23, 6, '72123.00', 1, 'Transferencia'),
+(116, '2020-05-30 22:58:38', 23, 6, '26600.00', 1, 'Transferencia');
 
 -- --------------------------------------------------------
 
@@ -354,9 +313,12 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`Id_Producto`, `Nombre_Producto`, `Id_Tipo_Producto`, `Precio_Venta`, `Nombre_Usuario`, `FechaCreacion`) VALUES
-(2, 'Luzes', 'Abonos', 123, 'Santiago', '2020-05-30'),
+(1, 'girasol', 'Semillas', 8000, 'Estefania', '2020-05-31'),
+(2, 'spist', 'Abonos', 4400, 'Estefania', '2020-05-31'),
 (3, 'Pedigrie', 'Abonos', 12000, 'Santiago', '2020-05-30'),
-(4, 'Electricable', 'Abonos', 3, 'Santiago', '2020-05-30');
+(4, 'melasa', 'Cuidos', 7400, 'Estefania', '2020-05-31'),
+(5, 'vaselina', 'Insecticida', 1200, 'Estefania', '2020-05-31'),
+(6, 'vetenira', 'Insecticida', 2300, 'Estefania', '2020-05-31');
 
 -- --------------------------------------------------------
 
@@ -498,31 +460,31 @@ ALTER TABLE `configuracion`
 -- AUTO_INCREMENT de la tabla `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
-  MODIFY `Correlativo` bigint(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Correlativo` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_temp`
 --
 ALTER TABLE `detalle_temp`
-  MODIFY `Correlativo` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `Correlativo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `entradas_de_producto`
 --
 ALTER TABLE `entradas_de_producto`
-  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_entrada_producto` int(100) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `No_factura` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `No_factura` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- Restricciones para tablas volcadas

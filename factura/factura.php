@@ -46,6 +46,7 @@
 					<p>Fecha: <?php echo $factura['Fecha']; ?></p>
 					<p>Hora: <?php echo $factura['hora']; ?></p>
 					<p>Vendedor: <?php echo $factura['vendedor']; ?></p>
+					<p>Metodo pago: <?php echo $factura['forma_pago'];?></p>
 				</div>
 			</td>
 		</tr>

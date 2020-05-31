@@ -29,7 +29,7 @@
 		}
 
 
-		$query = mysqli_query($conn,"SELECT f.No_factura, DATE_FORMAT(f.Fecha, '%d/%m/%Y') as Fecha, DATE_FORMAT(f.Fecha,'%H:%i:%s') as  hora, f.Cod_cliente, f.estado,
+		$query = mysqli_query($conn,"SELECT f.No_factura, DATE_FORMAT(f.Fecha, '%d/%m/%Y') as Fecha, DATE_FORMAT(f.Fecha,'%H:%i:%s') as  hora, f.Cod_cliente, f.estado,f.forma_pago,
 												 v.Nombre as vendedor,
 												 cl.cedula_cliente, cl.nombre, cl.telefono,cl.direccion
 											FROM factura f

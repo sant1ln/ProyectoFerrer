@@ -273,12 +273,13 @@ $( document ).ready(function() {
             var action = 'procesarventa';
             var codcliente = $('#idcliente').val();
             var prueba = $('#prueba').val();
+            var metodo = $('#metodo').val();
 
             $.ajax({
                 url: 'includes/modelos/modelo-clientes.php',
                 type: "POST",
                 async: true,
-                data: {action:action,codcliente:codcliente,prueba:prueba},
+                data: {action:action,codcliente:codcliente,prueba:prueba,metodo:metodo},
 
                success: function(response){  
                    
