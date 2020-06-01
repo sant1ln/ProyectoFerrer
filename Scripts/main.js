@@ -298,7 +298,7 @@ $( document ).ready(function() {
                     }else{
                         console.log('no datos');
                         
-                    }
+                    } 
                 },
                 error: function(error){
 
