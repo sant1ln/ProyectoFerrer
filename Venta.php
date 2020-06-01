@@ -22,7 +22,7 @@
 
             <input type="hidden" id="prueba" name="prueba" value="<? echo $_SESSION['id']?>">
             <div class="wd30">
-              <label  class="label" for="Nit">Cedula</label>
+              <label  class="label" for="Nit">Cedula - Nit</label>
               <input class="wid1000" type="text" name="nit_cliente" id="nit_cliente" >
             </div>
             <div class="wd30">

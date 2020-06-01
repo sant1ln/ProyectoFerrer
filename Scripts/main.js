@@ -283,9 +283,9 @@ $( document ).ready(function() {
 
                success: function(response){  
                    
-                 //console.log(response);
+                 console.log(response);
                     
-                    if(response != 'error'){
+                    /* if(response != 'error'){
 
                         var info = JSON.parse(response);
                         //console.log(info);
@@ -298,7 +298,7 @@ $( document ).ready(function() {
                     }else{
                         console.log('no datos');
                         
-                    }
+                    } */
                 },
                 error: function(error){
 
