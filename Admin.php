@@ -397,7 +397,6 @@
                   </div>
       </div>
             
-
       <div id="admins">
               <div class="seccionR"> <!-- Reporte por día -->
                 <div>

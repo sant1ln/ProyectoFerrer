@@ -310,6 +310,22 @@ $( document ).ready(function() {
 
 
     });
+
+    //ver factura
+    $('.btn_view').click(function(e){
+        e.preventDefault(e);
+
+        var codcliente = $(this).attr('cl');
+        var No_factura = $(this).attr('f');
+
+        generarPDF(codcliente,No_factura);
+
+    });
+
+
+
+
+
 }); //finaliza el ready
 
 

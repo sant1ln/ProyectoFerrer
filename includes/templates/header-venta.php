@@ -28,6 +28,7 @@ $hoy = date("Y-m-j");
         </div>
         <ul class="enlace-navegacion">
             <li><a id="vender" class="encalce" href="Venta.php">Vender</a></li>
+            <li><a id="ventas" class="encalce" href="Ventas.php">Ventas</a></li>
             <a href="index.php?cerrar_session=true"><i class="fas fa-sign-out-alt Singout"></i></a>
         </ul>
     </nav>
