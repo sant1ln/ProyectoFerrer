@@ -271,15 +271,16 @@
         color: #fff;
     }
     
-    
     .reporte{
-        /* border: 1px solid black; */
+           /* border: 1px solid black; */
         width: 400px;
         height: 170px;
         margin-top: 15px;
         background-color:#e2e3de;
         box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
+    
     }
+
     .reporte  ul{
         padding: 0;
         margin: 0;
@@ -304,16 +305,21 @@
     }
     
     .reportexDia{
-        width: 70%;
+        width: 60%;
         height: 30px;
-        border: none;
+        border: solid 1px black;
+        margin: 4px;
+    }
+    .reportex{
+        width: 60%;
+        height: 30px;
+        margin: 4px;
     }
     
+    
     .Btn-generar{
-        margin: 10px;
-        width: 30%;
-        height: 30px;
-        border: none;
+        margin-right: 10px;
+       border-radius: solid 3px ;
         background-color: #009245;
     }
     
@@ -635,6 +641,49 @@
 .icon{
    color: #152e21;
    
+}
+
+.Estilos-Venta{
+    background-color: #35682d;
+    margin-top: 15px;
+    display: flex;
+   
+}
+
+.Estilos-Venta h2{
+    margin-bottom: 0;
+}
+
+.form_search{
+   margin-left: 38rem;
+}
+
+.inputbutton{
+    display: flex
+}
+
+.reportef {
+    display: flex;
+    align-items: initial;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.btn_view{
+    background-color: #35682d ;
+}
+
+.pagada{
+    color: black;
+    width: 75px;
+    background: #009245;
+    text-align: center;
+    border-radius: 5px;
+    padding: 4px,15px;
+    display: block;
+    text-transform: uppercase;
+
+
 }
 
 
