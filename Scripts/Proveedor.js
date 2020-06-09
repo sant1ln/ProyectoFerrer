@@ -124,8 +124,6 @@ function actualizarProvedor(datosUP){
     xhr.send(datosUP);
 }
 
-
-
 function MostrarProvedorCreado(respuesta){
     /* console.log("Quiero café"); */
 

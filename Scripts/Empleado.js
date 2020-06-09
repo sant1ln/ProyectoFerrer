@@ -10,7 +10,6 @@ function eventListenersE(){
         // cuando el form se ejecuta;
         Formularioempleado.addEventListener('submit',leerFormulario);
         Lista_empleados.addEventListener('click',eliminarContacto)
-        
 }
 // leer form
 function leerFormulario(e){

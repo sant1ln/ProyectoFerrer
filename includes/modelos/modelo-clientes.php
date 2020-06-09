@@ -318,15 +318,11 @@ if($_POST['action'] == 'procesarventa'){
 
    
 
-    print_r($POST);
+    // print_r($POST);
     
-   $query = mysqli_query($conn,"SELECT * FROM detalle_temp WHERE token_user = '$token' ");
+    $query = mysqli_query($conn,"SELECT * FROM detalle_temp WHERE token_user = '$token' ");
     $result = mysqli_num_rows($query);
-    $response = array(
-        'respuesta' => $query_procesar->error_list,
-        'error' => $query_procesar->error
-    ); 
-    echo json_encode($response);
+   
     if($result > 0){
 
         $query_procesar = mysqli_query($conn,"CALL procesar_venta($prueba,$codcliente,'$token','$metodo')");

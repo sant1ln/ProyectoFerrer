@@ -285,7 +285,7 @@ $( document ).ready(function() {
                    
                  console.log(response);
                     
-                    /* if(response != 'error'){
+                     if(response != 'error'){
 
                         var info = JSON.parse(response);
                         //console.log(info);
