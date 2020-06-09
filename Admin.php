@@ -5,8 +5,8 @@
   //echo($_SESSION['nombre']);
  
 ?>
-  <div class="contenedor contenedorA">
-    <div class="contenedorInventario">
+<div class="contenedor contenedorA">
+  <div class="contenedorInventario">
 
       <div id="ReportCreate" class="inventarioMORE ReporteDown">  <!-- Reporte -->
           <div class="TengoEstilos">
@@ -443,7 +443,7 @@
                     <input type="button" id="botonVerE" class="boton btn-aceptar " value="Añadir Provedores">
                 </div>
       </div>
-           </div>
-    </div>
+      <!-- </div> -->
   </div>
+</div>
     <?php include_once 'includes/templates/footer.php'; ?>
