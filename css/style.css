@@ -686,6 +686,24 @@
 
 }
 
+.alertaContenedor{
+    display: flex;
+    justify-content: flex-end;
+    
+   /*  flex-direction: column; */
+}
+
+.alert{
+    background-color: #7ab871;
+    margin-top: 20px;
+    width: 280px;
+    display: block;
+    height: auto;
+}
+
+.NAlert{
+    color: #e2e3de;
+}
 
 
     

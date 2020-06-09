@@ -92,3 +92,5 @@ function CerrarRep(){
     ReportCreate.classList.toggle('Reporte');
     admins.style.display = 'flex';
 }
+
+const alerta = document.querySelector('.alert')
