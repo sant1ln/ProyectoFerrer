@@ -687,18 +687,26 @@
 }
 
 .alertaContenedor{
+    height: auto;
     display: flex;
-    justify-content: flex-end;
-    
-   /*  flex-direction: column; */
+    position: absolute;
+    justify-content: flex-start;
+    left: 70%;
+    flex-direction: column;
 }
 
 .alert{
     background-color: #7ab871;
-    margin-top: 20px;
+    margin: 10px;
     width: 280px;
     display: block;
     height: auto;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.alertOff{
+    display: none;
 }
 
 .NAlert{

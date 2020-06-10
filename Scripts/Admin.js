@@ -3,16 +3,18 @@ var admins = document.getElementById('admins') /* Obtener contenedor */
 var inventarioMORE = document.getElementById('inventarioMORE');
 var botonAbrir = document.getElementById('botonAbrir').addEventListener('click',AbrirInventario);
 var CerrarInventario = document.getElementById('CerrarInventario').addEventListener('click',CerrarInventario)
-
+var contenedorAlertas = document.querySelector('#alertasC');
 function AbrirInventario(){
     inventarioMORE.style.display = 'flex'
     admins.style.display = 'none';
+    contenedorAlertas.style.display = 'none';
 }
 
 function CerrarInventario(){
     admins.style.display = 'flex';
     inventarioMORE.style.display = 'none';
     inventarioADD.style.display = 'none';
+    contenedorAlertas.style.display = 'flex';
 }
 
 /* Abrir Crear(Añadirinventario ) Cerrar Inventario */
@@ -23,12 +25,13 @@ var CerrarAnadir = document.getElementById('CerrarAnadir').addEventListener('cli
 function AbrirADD(){
     inventarioADD.style.display = 'flex';
     admins.style.display = 'none';
+    contenedorAlertas.style.display = 'none';
 }
 
 function CerrarADD(){
     inventarioADD.style.display = 'none';
     admins.style.display = 'flex';
-    
+    contenedorAlertas.style.display = 'flex';
 }
 
 /* Abrir crear (AñadirEmpleado) Cerrar Empleados */ 
@@ -39,11 +42,13 @@ var BTNEmpleado = document.getElementById('CerrarEmpleado').addEventListener('cl
 function AbrirADDEmpleado(){
     EmpleadoADD.style.display = 'flex'
     admins.style.display = 'none';
+    contenedorAlertas.style.display = 'none';
 }
 
 function CerrarADDEmpleado(){
     EmpleadoADD.style.display = 'none'
     admins.style.display = 'flex';
+    contenedorAlertas.style.display = 'flex';
 }
 
 /* Abrir crear(ver inventario) cerrar Empleados */
@@ -55,11 +60,13 @@ var EmpladoMORE = document.getElementById('EmpladoMORE');
 function VerEmpleado(){
     EmpladoMORE.style.display = 'flex';
     admins.style.display = 'none';
+    contenedorAlertas.style.display = 'none';
 }
 
 function CerrarEmpleados(){
     EmpladoMORE.style.display = 'none';
     admins.style.display = 'flex';
+    contenedorAlertas.style.display = 'flex';
 }
 
 /* Abrir crear(AñadirEntrada) cerrar Empleados  */
@@ -71,11 +78,13 @@ function AnadirEntrada(){
    
         EntradaADD.style.display = "flex";
         admins.style.display = 'none';
+        contenedorAlertas.style.display = 'none';
 }
 
 function CerrarEntrada(){
     EntradaADD.style.display = "none";
     admins.style.display = 'flex';
+    contenedorAlertas.style.display = 'flex';
 }
 
 /* Abrir/Cerrar Reporte */
@@ -87,10 +96,23 @@ const ReportCreate = document.querySelector('#ReportCreate'),
 function AbrirReporte(){
     ReportCreate.classList.toggle('Reporte');
     admins.style.display = 'none';
+    contenedorAlertas.style.display = 'none';
 }
 function CerrarRep(){
     ReportCreate.classList.toggle('Reporte');
     admins.style.display = 'flex';
+    contenedorAlertas.style.display = 'flex';
 }
 
-const alerta = document.querySelector('.alert')
+const alert = document.getElementsByClassName('alert')
+
+for(var i=0;i<alert.length;i++){
+    alert[i].addEventListener('click', CerrarAlerta)
+    console.log(i);
+}
+
+function CerrarAlerta(){
+    const alerta = document.getElementsByClassName('alerta')
+    /* console.log(alerta); */
+    alerta.style.display = 'none'
+}

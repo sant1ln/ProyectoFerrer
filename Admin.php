@@ -447,16 +447,18 @@
 
       </div>
 
-      <div class="alertaContenedor">
+      <div class="alertaContenedor" id="alertasC">
         <?php 
         $alertas = obtenerInventario();
         if($alertas->num_rows) { 
          foreach($alertas as $alerta) { 
            if($alerta['existencia'] <= 10){?>
-            <div  class="alert">
+            <div  class="alert" id="alerta">
                 <h3>El articulo: <span class="NAlert"><?php echo $alerta['Nombre_Producto'] ?></span></h3>
                 <h4>Se esta agotando.</h4>
                 <h5>Unidades restantes: <?php echo $alerta['existencia']  ?></h5>
+                
+                
             </div> <br>
            <?php }
            }
