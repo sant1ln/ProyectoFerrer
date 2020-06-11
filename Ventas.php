@@ -3,7 +3,8 @@
    include 'includes/funciones/sessiones.php';
    include 'includes/templates/header-venta.php';
    include 'includes/funciones/consultas.php';
- 
+
+
 ?>
 
 
@@ -12,11 +13,11 @@
 
 </div>
 <div class="reportev">
-    <form  action="buscar_venta.php" method="get" >
+    <form   method="POST" action="includes/modelos/reporte-excel.php" >
          <div class="reportef">
-            <input class="reportexDia" type="date" name="fecha_inicio" id="FechaIncio" required>
-            <input class="reportexDia" type="date" name="fecha_final" id="FechaFin"  required>
-            <button class="Btn-generar" type="submit" id="Reporte" >Generar</button>
+            <input class="reportexDia" type="datetime-local" name="fecha_inicio" id="FechaIncio" required>
+            <input class="reportexDia" type="datetime-local" name="fecha_final" id="FechaFin"  required>
+            <button class="Btn-generar" type="submit" id="Reporte" name="generar" >Generar</button>
         </div>
     </form>
 </div>

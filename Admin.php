@@ -400,16 +400,11 @@
       <div id="admins">
               <div class="seccionR"> <!-- Reporte por día -->
                 <div>
-                <h2>Reporte de ventas</h2>
+                <h2>Reporte de Existencias</h2>
                 </div>
                 <div class="reporte">
-                    <form action="" id="Form_Report">
-                        <label for="">Ingrese Fecha inicial</label>
-                        <input class="reportexDia" type="date" name="" id="FechaIncio">
-                        <label for="">Ingrese Fecha Final</label>
-                        <input class="reportexDia" type="date" name="" id="FechaFin">
-                        
-                        <button class="Btn-generar" type="submit" id="Reporte" >Generar</button>
+                    <form method="POST" action="includes/modelos/reporte-existencias.php" >
+                        <button class="Btn-generar" type="submit" name="generar" >Generar Reporte</button>
                     </form>
                 </div>
               </div>
@@ -452,7 +447,7 @@
         $alertas = obtenerInventario();
         if($alertas->num_rows) { 
          foreach($alertas as $alerta) { 
-           if($alerta['existencia'] <= 10){?>
+           if($alerta['existencia'] < 10){?>
             <div  class="alert" id="alerta">
                 <h3>El articulo: <span class="NAlert"><?php echo $alerta['Nombre_Producto'] ?></span></h3>
                 <h4>Se esta agotando.</h4>

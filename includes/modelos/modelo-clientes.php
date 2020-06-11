@@ -344,6 +344,25 @@ if($_POST['action'] == 'procesarventa'){
 
 }
 
+/*if($_POST['action'] == 'generarreporte'){
+
+   
+   $fechaInicio = $_POST['fechainicio'];
+   $fechaFinal = $_POST['fechafinal'];
+
+
+   
+   $query_reporte = mysqli_query($conn,"SELECT No_factura,Fecha,forma_pago FROM factura WHERE Fecha BETWEEN '$fechaInicio' AND '$fechaFinal' ")
+
+   ob_start();
+		include_once(BASE_PATH.'/tdea/mvc/Vista/exportar_excel.php');
+		$string = ob_get_clean(); 
+		header("Content-type: application/vnd.ms-xls"); 
+		header("Content-Disposition: attachment; filename=Reporte libros.xls"); 
+		header("mso-number-format: @" );
+		echo $string;
+}*/
+
 
 
 

@@ -323,6 +323,38 @@ $( document ).ready(function() {
     });
 
 
+    /*$('#Reporte').click(function(e){
+
+        e.preventDefault();
+
+            var action = 'generarreporte';
+            var fechainicio = $('#FechaIncio').val();
+            var fechafinal = $('#FechaFin').val();
+
+            $.ajax({
+                url: 'includes/modelos/modelo-clientes.php',
+                type: "POST",
+                async: true,
+                data: {action:action,fechainicio:fechainicio,fechafinal:fechafinal},
+
+               success: function(response){  
+                   
+                 console.log(response);
+                    
+                    
+                },
+                error: function(error){
+
+                }
+              
+            });*/
+            
+
+
+
+    
+
+
 
 
 

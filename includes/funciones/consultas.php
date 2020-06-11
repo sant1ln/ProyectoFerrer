@@ -147,4 +147,8 @@ function obtenerInsecticida(){
     }
 }
 
+
+
+
+
 ?>
