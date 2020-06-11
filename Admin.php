@@ -402,9 +402,9 @@
                 <div>
                 <h2>Reporte de Existencias</h2>
                 </div>
-                <div class="reporte">
+                <div class="reporte existencias">
                     <form method="POST" action="includes/modelos/reporte-existencias.php" >
-                        <button class="Btn-generar" type="submit" name="generar" >Generar Reporte</button>
+                        <button class="Btn-generar" type="submit" name="generar" ><i class="far fa-file-excel"></i> Generar Reporte</button>
                     </form>
                 </div>
               </div>

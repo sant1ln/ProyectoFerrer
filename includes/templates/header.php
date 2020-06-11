@@ -13,8 +13,8 @@ $hoy = date("Y-m-j");
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    
     <title>Ferrer</title>
 </head>
 <body>
@@ -32,7 +32,7 @@ $hoy = date("Y-m-j");
         <ul class="enlace-navegacion">
             <li><a id="vender" class="encalce" href="Venta.php">Vender</a></li>
             <li><a id="admin"  class="encalce" href="Admin.php">Administrador</a></li>
-            <a href="index.php?cerrar_session=true"><i class="fas fa-sign-out-alt Singout"></i></a>
+            <li><a href="index.php?cerrar_session=true" class="salir"><i class="fas fa-sign-out-alt Singout"></i></a></li>
         </ul>
        
     </nav>

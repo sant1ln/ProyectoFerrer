@@ -18,6 +18,10 @@
         font-family: 'Lato',Arial, Helvetica, sans-serif ;
         justify-content: center;
     }
+
+    .salir{
+        margin: 0;
+    }
     
     /* Reutilizables */
     
@@ -278,6 +282,7 @@
         margin-top: 15px;
         background-color:#e2e3de;
         box-shadow: 0px 0px 16px -1px rgba(0,0,0,0.75);
+        color: white;
     
     }
 
@@ -288,6 +293,14 @@
         flex-wrap: wrap;
         flex-direction: column;
     }
+
+ /*    .existencias{
+        display: flex;
+        align-items: center;
+        
+    }
+ */
+
     li{
         font-size: 20px;
     }
@@ -297,6 +310,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: relative;
+        top: 40%;
     }
     
     label{
@@ -319,16 +334,25 @@
     
     .Btn-generar{
         margin-right: 10px;
-       border-radius: solid 3px ;
+        border: none;
+        width: 70%;
+        height: 15%;
         background-color: #009245;
+        color: white;
+        font-size: 25px;
     }
     
     .reporte .boton{
         background-color: #009245;
-        margin: 20px 0;
+        margin: 10px;
         cursor: pointer;
     }
     
+
+    .Btn-generar:hover{
+        color:#8ee7b8;
+    }
+
     .reporte .boton:hover{
         background-color: #279259;
         margin: 20px 0;
