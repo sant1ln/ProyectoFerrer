@@ -25,7 +25,7 @@
   
     <div class="login" id="login">
         <img src="./img/logo.png" alt="Logo">
-        <form  id="login" method="POST">
+        <form  class="loginp" id="login" method="POST">
             <label for="usuario">Usuario</label>
             <input class="Login-input" type="text" value="" id="usuario">
             <label for="Contraseña">Contraseña</label>
